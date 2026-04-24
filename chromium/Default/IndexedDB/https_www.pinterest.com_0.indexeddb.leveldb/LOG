@@ -1,0 +1,6 @@
+2026/04/22-12:39:47.652 33f Creating DB /home/shumer/.config/chromium/Default/IndexedDB/https_www.pinterest.com_0.indexeddb.leveldb since it was missing.
+2026/04/22-12:39:47.659 33f Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_www.pinterest.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/04/22-12:49:10.361 341 Level-0 table #5: started
+2026/04/22-12:49:10.374 341 Level-0 table #5: 226497 bytes OK
+2026/04/22-12:49:10.380 341 Delete type=0 #3
+2026/04/22-12:49:10.381 341 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

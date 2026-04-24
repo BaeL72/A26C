@@ -1,0 +1,48 @@
+vim.api.nvim_create_autocmd("InsertEnter", {
+	once = true,
+	pattern = { "*.c", "*.cpp", "*.h" },
+	callback = function()
+		vim.lsp.config("clangd", {
+			cmd = { "clangd" },
+			filetypes = { "c", "cpp" },
+			root_markers = { "CMakeLists.txt", ".git" },
+		})
+		vim.lsp.enable("clangd")
+	end,
+})
+vim.api.nvim_create_autocmd("InsertEnter", {
+	once = true,
+	pattern = { "*.lua" },
+	callback = function()
+		vim.lsp.config("luals", {
+			cmd = { "luals" },
+			filetypes = { "lua" },
+			root_markers = { "CMakeLists.txt", ".git" },
+		})
+		vim.lsp.enable("luals")
+	end,
+})
+vim.api.nvim_create_autocmd("InsertEnter", {
+	once = true,
+	pattern = { "*.py" },
+	callback = function()
+		vim.lsp.config("pyright", {
+			cmd = { "pyright" },
+			filetypes = { "python" },
+			root_markers = { "CMakeLists.txt", ".git" },
+		})
+		vim.lsp.enable("pyright")
+	end,
+})
+vim.api.nvim_create_autocmd("InsertEnter", {
+	once = true,
+	pattern = { "*.qml" },
+	callback = function()
+		vim.lsp.config("qmlls6", {
+			cmd = { "qmlls6" },
+			filetypes = { "qml" },
+			root_markers = { "CMakeLists.txt", ".git" },
+		})
+		vim.lsp.enable("qmlls6")
+	end,
+})

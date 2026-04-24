@@ -1,0 +1,1 @@
+xargs sudo pacman -S --noconfirm --needed < file.txt
