@@ -1,0 +1,36 @@
+xargs sudo pacman -S --noconfirm --needed < file.txt
+
+xargs - program that reads items from stdin and passes them as arguments to a command
+it bridges gap between programs that output text and programs that expect arguments.
+
+xargs [options] [command [initial-args]]
+
+NOTE: arguments with spaces are split into separate args.
+
+-n Limit how many arguments are passed per command invocation.
+echo "a b c d e" | xargs -n 2 echo
+runs: echo a b -> echo c d -> echo e f
+
+-I{} {} is replaced with each input item
+echo "file.txt" | xargs -I{} cp {} /backup/
+
+-0 Null delimiter 
+
+-P Parallel execution
+find . -name "*.jpg" -print0 | xargs -0 -P4 -I{} convert {} {}.webp - Run 4 parallel workers
+
+-t Print each command before execution it
+
+-p Prompt before each command execution
+
+-r Don't run the command input is empty
+
+-L Use complete lines as arguments units(not words)
+
+sh -c Run complex shell expressions, pipelines, or multiple commands per item
+
+-a Red input from file directly
+
+-s Limit the total size of each command invocation
+
+wc - calculates a file's word, line, character or byte count.

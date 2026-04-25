@@ -1,0 +1,77 @@
+find [path] [expression] [action]
+
+-name Find by name
+-iname Find by name case-insensitive
+
+-name "*.txt" -print Print with newline
+-name "*.txt" -print0 Print with null separator
+
+-type f Regular files only
+-type d Directories only
+-type l Symbolic links
+-type b Block devices
+-type c Character devices
+-type p Named pipes
+-type s Sockets
+
+-maxdepth 1 Current dir only(no recursion)
+-mindepth 2 -maxdepth 4 Between depth 2 and 4
+
+-size 10M Exactly 10 megabytes
+-size 100M Larger than 100MB
+Unites: c=bytes, k=KB, M=MB, G=GB, T=TB
+
+-mtime -7 Modified in last 7 days
+-mtime +30 modiried more than 30 days ago
+-mtime 0 Modified today
+-mmin -60 Modified in last 60 minutes
+-newer file.txt Modified more recently than file.txt
+
+-exec {} \; Run a command one separate command call per file
+-exec {} +; Run a command accumulates all the results and passes them together
+-execdir Safer exec
+
+-delete Delete matched files directly: find . -name "*.tmp" -delete
+
+-ls Print results in ls -l format with details
+
+-atime -3 Accessed in last 3 days 
+-ctime -1 Inode changed(permissions, owner) in last 24h
+-amin -30 Accessed in last 30 minutes
+-cmin -60 Inode changed in last 60 minutes
+
+-perm 644 Exactly rw-r--r--
+-perm -644 At least these bits set
+-perm /111 Any execute bit set(any user)
+-perm -u+x Owner has execute permission
+-perm -0+w Others have write permission
+-perm 777 fully open files 
+
+-user alice Owned by user 'alice'
+-group developers Owned by group 'developers'
+-uid 1091 Owned by UID 1091
+-gid 1003 Owned by GID 1003
+-nouser No valid user
+-nogroup No valid group
+
+# AND (implicit - just like conditions)
+find . -name "*.py" -size +10K
+
+# OR with -o
+find . -name "*.jpg" -o -name "*.png"
+
+# NOT with ! or -not
+find . ! -name "*.log"
+find . -not -name "*.top"
+
+# Grouping with escaped parentheses
+find . (-name "*.jpg" -o -name "*.png") -size +1M
+
+# Skip node_modules
+find . -name "node_modules" -prune -o -name "*.js" -print
+
+# Skip multiple directories
+find . (-name ".git" -o -name "dist") -prune -o -type f -print
+
+# Skip hidden directories
+find . -name ".*" -prune -o -type f -print

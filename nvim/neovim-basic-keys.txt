@@ -1,0 +1,112 @@
+Ctrl + f Scroll full page down
+Ctrl + b Scroll full page up
+Ctrl + d Scroll half page down
+Ctrl + u Scroll half page up
+Ctrl + e Scroll down one line
+Ctrl + y Scroll up one line
+
+zz Center screen cursor
+zt Put cursor line at top
+zb Put cursor line at bottom
+
+{ Jump to previous empty line
+} Jump to next empty line
+
+( Sentence backward
+)Sentence forward
+
+[[ Section backward
+]] Section forward
+
+H Move cursor to top of screen
+M Move cursor to middle of screen
+L Move cursor to bottom of screen
+
+numberCtrl + e Scroll down number lines
+
+qa Start recording into register 'a'
+q Stop recording 
+@a Replay macro
+@@ Replay last macro
+10@a Replay 10 times
+
+ma Set mark 'a' at current position
+'a Jump to line of mark 'a
+'' Jump back to previous position
+`a Jump to exact position of mark 'a'
+`. Jump to last change
+`^ Jump to last insert position
+:marks List all marks
+
+"ayy Yank line into register 'a'
+"ap Paste from register 'a'
+"*y Yank to system clipboard
+"+y Yank system clipboard (linux)
+:reg Show all registers
+
+daw Delete a word include space
+di" Delete inside quotes
+da" Delete including quotes
+dip Delete inner paragraph
+di{ Delete inside curly braces
+ci( Change inside parenthesses
+yi[ Yank inside brackets
+
+Ctrl + o Go back in jumplist
+Ctrl + i Go forward in jumplist
+
+gf Open file under cursor
+gx Open URL under cursor in browser
+ga Show ASCII value of character in under cursor
+
+Ctrl + a Increment number under cursor
+Ctrl + x Decrement number under cursor
+gUiw Uppercase whole word
+guiw Lowercase whole word
+
+:3d Delete 3 lines
+:3,7d Delete lines 3 to 7
+:.d Delete current line
+:$d Delete last line
+:.,$d Delete from current to end
+:%d Delete all lines
+
+q: Open command history window
+Ctrl + f Open command history window while in cmdline
+
+:copen Open quickfix window
+:cclose Close quickfix window
+:cnext next item
+:cprev previous item
+:cc 3 jump to item 3
+
+:redir > output.txt Redirect output of command to output.txt
+...
+:redir END
+:redir @a 
+:set all
+:redir END
+
+:norm dd Delete current line
+:norm @a Run macro 'a'
+:'<,'>norm I// Paste '//' in start of all selected lines
+:%norm A; Append semicolon to every line
+
+:r !cat file.txt Insert file content at cursor
+:%!sort Sort entire file
+@: Repeat last cmdline command
+
+:earlier 1m Revert buffer to how it was 1 minute ago
+:later 30s Go forward 30 seconds in undo history
+:changes Show change list
+:history Show cmdline history
+:messages Show all previous messages/errors
+
+:0put Paste before line 1
+:$put Paste after last line
+:1put Paste default register after line 1
+:1put + Paste system clipboard after line 1
+:1put a Paste register 'a' after line 1
+
+:1p Display line 1 in cmdline
+? Search match above the current position

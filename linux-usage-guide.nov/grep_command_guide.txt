@@ -1,0 +1,57 @@
+grep [option] pattern [file...]
+
+-i Case insensative
+-v Invert match. Print lines that do NOT match the pattern
+-n Prefix each matching line with its line number
+-r Recursive search. Search all files inside a directory tree
+-c Count Matches. Print only the count of matching lines per file
+-l Print only the filenames that match
+-L Print only the filenames that don't match
+-A Print lines around each for context(After)
+-B Print lines around each for context(Before)
+-C Print lines around each for context(Around)
+-o Print only the matching text, not the whole line
+-h Suppress filename
+-H Suppress filename
+-F Treat pattern as a literal string, not a regex
+-E extended regex(?, +, |, (), {})
+-P Perl regex(\d, \w, \b, \t)
+-w Whole word match
+-e Multiple patterns
+-f Patterns from file
+-Z Null-separated output, safe, for xargs
+-q Suppress output
+-m Stop after n-matches
+
+# Common regex patterns 
+"^text" Line starts with 'text'
+"text$" Line ends with 'text'
+"^$" Blank lines
+"^." Non-blank lines
+"[0-9]" Any digit
+"[a-zA-Z]" Any letter
+"\bword\b" Whole word only
+"\Bword\B" Match word only when it appears INSIDE a longer word
+"." any character
+
+--include Limit recursive search to specific file types
+--exclude Limit recursive search to specific file types
+
+"+" Means 'One or more' - 'go+gle' matches gogle, google, gooogle
+"?" Means OR - 'colou?r' matches both color and colour
+"()" For grouping
+"{}" For exact counts - "[0-9]{3}" means exactly 3 digits, "[0-9]{2, 4}" means 2 to 4 digits
+"\d" Means any digit(same as [0-9])
+"\w" Means word(same as [a-zA-Z0-9_])
+"\s" Means whitespaces
+"\t" Means tab
+"\n" Means new line
+"\b" Word boundary
+"\D" Anything that is not a digit
+"\W" Anything that is not a word character
+"\S" Anything that is not whitespace
+"\B" Not a word boundary
+"?=..." What follows must match
+"?!..." What follows must NOT match
+"?<=..." What precedes must match
+"?<!=..." What precedes must NOT match
