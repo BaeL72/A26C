@@ -1,9 +1,11 @@
 return {
-	"nvim-telescope/telescope-file-browser.nvim",
+	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		"nvim-telescope/telescope.nvim",
 		"nvim-lua/plenary.nvim",
+		-- optional but recommended
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
+
 	config = function()
 		require("telescope").setup({
 			defaults = {
@@ -14,13 +16,6 @@ return {
 					},
 				},
 			},
-			extensions = {
-				file_browser = {
-					git_status = true,
-					hijack_netrw = true,
-				},
-			},
 		})
-		require("telescope").load_extension("file_browser")
 	end,
 }

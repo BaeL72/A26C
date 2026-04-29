@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 local optsmap = { noremap = true, silent = true, nowait = true }
-local builtin = require("telescope.builtin")
+local telescope = require("telescope.builtin")
 
 --DEFAULT KEYMAPS REWORK
 
@@ -10,30 +10,27 @@ map("n", "<leader>]", ":bnext<CR>")
 
 --TELESCOPE KEYMAPS
 
-map("n", "<leader>lg", builtin.live_grep, { desc = "Telescope live grep" })
-map("n", "<leader>bb", builtin.buffers, { desc = "Telescope buffers" })
-map("n", "<leader>ht", builtin.help_tags, { desc = "Telescope help tags" })
-map("n", "<leader>fa", builtin.current_buffer_fuzzy_find, { desc = "Telescope fuzzy find in current buffer" })
-map("n", "<leader>ac", builtin.commands, { desc = "Telescope Commands" })
-map("n", "<leader>gc", builtin.git_commits, { desc = "Telescope Git Commits" })
-map("n", "<leader>gB", builtin.git_bcommits, { desc = "Telescope Git Bcommits" })
-map("n", "<leader>gb", builtin.git_branches, { desc = "Telescope Git Branches" })
-map("n", "<leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
-map("n", "<leader>gh", builtin.git_stash, { desc = "Telescope Git Stash" })
-map("n", "<leader>ts", builtin.treesitter, { desc = "Telescope Tree Sitter" })
-map("n", "<leader>ak", builtin.keymaps, { desc = "Telescope Available Keymaps" })
+map("n", "<leader>lg", telescope.live_grep, { desc = "Telescope live grep" })
+map("n", "<leader>bb", telescope.buffers, { desc = "Telescope buffers" })
+map("n", "<leader>ht", telescope.help_tags, { desc = "Telescope help tags" })
+map("n", "<leader>fa", telescope.current_buffer_fuzzy_find, { desc = "Telescope fuzzy find in current buffer" })
+map("n", "<leader>ac", telescope.commands, { desc = "Telescope Commands" })
+map("n", "<leader>gc", telescope.git_commits, { desc = "Telescope Git Commits" })
+map("n", "<leader>gB", telescope.git_bcommits, { desc = "Telescope Git Bcommits" })
+map("n", "<leader>gb", telescope.git_branches, { desc = "Telescope Git Branches" })
+map("n", "<leader>gs", telescope.git_status, { desc = "Telescope Git Status" })
+map("n", "<leader>gh", telescope.git_stash, { desc = "Telescope Git Stash" })
+map("n", "<leader>ts", telescope.treesitter, { desc = "Telescope Tree Sitter" })
+map("n", "<leader>ak", telescope.keymaps, { desc = "Telescope Available Keymaps" })
 map("n", "<leader>ld", "<cmd>w | Telescope diagnostics<cr>", { desc = "Telescope Diagnostics List" })
-map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-map("n", "<leader>of", builtin.oldfiles, { desc = "Telescope Old Files" })
-map("n", "<leader>gs", builtin.grep_string, { desc = "Telescope Grep String" })
-
---FILE_BROWSER
-map("n", "<leader>n", ":Telescope file_browser<cr>", { silent = true }, { desc = "Telescope File Browser" })
+map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
+map("n", "<leader>of", telescope.oldfiles, { desc = "Telescope Old Files" })
+map("n", "<leader>gs", telescope.grep_string, { desc = "Telescope Grep String" })
 
 --HOP NVIM
 
 map({ "n", "v" }, "<leader><space>", "<cmd>HopWord<cr>", { desc = "Hop Word" })
-map({ "n", "v" }, "<Leader>j", "<cmd>HopLine<cr>", {desc = "Hop Line"})
+map({ "n", "v" }, "<Leader>j", "<cmd>HopLine<cr>", { desc = "Hop Line" })
 
 -- RUST KEYMAPS
 
