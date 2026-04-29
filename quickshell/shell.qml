@@ -1,5 +1,5 @@
 import Quickshell
-import "./components"
+import "./components/"
 
 ShellRoot {
     id: root
