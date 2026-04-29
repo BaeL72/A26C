@@ -34,3 +34,15 @@ sh -c Run complex shell expressions, pipelines, or multiple commands per item
 -s Limit the total size of each command invocation
 
 wc - calculates a file's word, line, character or byte count.
+
+head -n, 'n' - number, Shows 'n' lines from above.
+
+tail -n, 'n' - number, Shows 'n' lines from bottom.
+
+tee [options] file - Reads from stdin and writes to both stdout and a file simultaneously.
+
+-a Append to file, instead of overwriting.
+
+-i Ignore interrupt signals.
+
+
