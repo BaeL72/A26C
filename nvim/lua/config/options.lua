@@ -28,7 +28,7 @@ vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {
 	bg = "#080808",
 })
 
-opt.signcolumn = "yes"
+opt.signcolumn = "auto"
 opt.wrap = false
 opt.showmode = false
 opt.expandtab = true

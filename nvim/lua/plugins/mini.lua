@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-mini/mini.surround",
-		version = "*",
 		config = function()
 			require("mini.surround").setup({
 				mappings = {
@@ -18,7 +17,6 @@ return {
 	},
 	{
 		"nvim-mini/mini.move",
-		version = "*",
 		config = function()
 			require("mini.move").setup()
 		end,

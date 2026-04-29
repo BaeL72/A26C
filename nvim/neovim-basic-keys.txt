@@ -13,7 +13,7 @@ zb Put cursor line at bottom
 } Jump to next empty line
 
 ( Sentence backward
-)Sentence forward
+) Sentence forward
 
 [[ Section backward
 ]] Section forward
@@ -91,22 +91,23 @@ Ctrl + f Open command history window while in cmdline
 :norm @a Run macro 'a'
 :'<,'>norm I// Paste '//' in start of all selected lines
 :%norm A; Append semicolon to every line
+:for i in range(start,end,step) | exe i.'norm opt' | endfor Norm with step
 
 :r !cat file.txt Insert file content at cursor
 :%!sort Sort entire file
 @: Repeat last cmdline command
 
-:earlier 1m Revert buffer to how it was 1 minute ago
-:later 30s Go forward 30 seconds in undo history
-:changes Show change list
-:history Show cmdline history
-:messages Show all previous messages/errors
+:earlier 1m - Revert buffer to how it was 1 minute ago
+:later 30s - Go forward 30 seconds in undo history
+:changes - Show change list
+:history - Show cmdline history
+:messages - Show all previous messages/errors
 
-:0put Paste before line 1
-:$put Paste after last line
-:1put Paste default register after line 1
-:1put + Paste system clipboard after line 1
-:1put a Paste register 'a' after line 1
+:0put - Paste before line 1
+:$put - Paste after last line
+:1put - Paste default register after line 1
+:1put + - Paste system clipboard after line 1
+:1put a - Paste register 'a' after line 1
 
-:1p Display line 1 in cmdline
-? Search match above the current position
+:1p - Display line 1 in cmdline
+? - Search match above the current position
