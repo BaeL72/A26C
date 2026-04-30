@@ -1,0 +1,467 @@
+File must starts with line #!/usr/bin/bash
+
+Variables must haven't spaces around = when assign a value.
+
+name="Alice"
+
+Use '$' to read value.
+
+'{}' Tells bash when the variable name ends.
+
+echo "${name}" 
+result="$(date +%Y)"
+sum=$((number + 8))
+
+$() Capture the output of a command as a value
+
+var=`var` -> OLD
+var=$(var) -> NEW
+
+$0 Script name
+$1 $2 First and second arguments
+$# Number of arguments
+$@ All arguments as list
+$? Exit code of last command
+$$ Current process ID
+$* All arguments as one joined string
+$! Last argument
+
+${var:-default} - Use default if unset or empty
+${var-default} - Use default only if unset
+${var:=defautl} - Use default and assign it
+${var:?message} - Error and exit if unset
+
+<<EOF Passes a multiple block of text to a command
+
+cat <<EOF
+...
+EOF
+
+name="Alice"
+cat <<EOF
+Hello $name
+Today is $(date)
+EOF
+
+<<'EOF' Printed literally, not extended
+cat <<'EOF'
+...
+EOF
+
+<<< Passes a single string to a command's stdin
+
+read first last <<< "Alice Smith" 
+echo "$first" -> Alice
+echo "$last" -> Smith
+
+STRINGS MANIPULATION:
+
+Length: echo "${#str}" -> Print length of string
+Substring Extraction: echo "${str:n}" -> Print from index n
+                      echo "${str:0:n}" -> Print from 0 to n
+                      echo "${str:(-n)}" -> Print last n chars
+Find and Replace: echo "${str/old/new}" First match
+                  echo "${str//old/new}" All matches
+                  echo "${str/#old/new}" At start
+                  echo "${str/%old/new}" At end
+Remove Prefix/Suffix: file="hello.txt"
+                      echo "${file%.txt}" -> hello Remove shortest match
+                      echo "${file%%.*}" -> hello Remove longest match
+                      echo "${file#hello}" -> .txt Remove shortest match
+                      echo "${file##*.}" -> txt Remove longest match
+Case Conversion: echo "${string^^}" All uppercase
+                 echo "${string,,}" All lowercase
+                 echo "${string^}" Capitalize first char
+                 echo "${string,}" Lowercase first char
+
+echo "hello" | rev -> "olleh" Reverse string
+echo "hello" | tr -cd 'l' | wc -c -> 2 Count occurrences of a char
+echo "h-e-l-l-o" | tr -d '-' -> "hello" Remove specific chars 
+echo "hello" | tr 'a-z' 'A-Z' -> "HELLO" Replace chars
+
+
+$OPTARG Value passed to an option
+$OPTIND Index of next argument to process
+
+shift $1 becomes old $2, $2 becomes old $3...
+
+getopts Parses short flags like -f, -v, -o value
+
+while getopts "vf:o" flag; do
+  case "$flag" in
+    v) verbose=true ;;
+    f) file="$OPTARG" ;;
+    o) output="$OPTARG" ;;
+    ?) echo "Unknown flag"; exit 1 ;;
+
+read -p Reading user input
+read -sp Reading user input silent(no echo)
+read -t 'number' With timeout
+read -a Read into array
+read -p "Enter your name: " username
+echo "Welcome, $username"
+read -a colors <<< "red green blue"
+echo "${colors[@]}" -> red green blue
+
+if-else
+
+STRUCTURE:
+
+if [ condition ]; then
+  statement
+elif [ other_condition ]; then
+  statement
+else
+  statement
+fi
+
+NUMBERS:
+
+-eq Equal
+-ne Not equal
+-gt Greater than
+-ge Greater then or equal
+-lt Less than
+-le Less than or equal
+
+STRINGS:
+
+= Equal
+!= Not equal
+-z Empty string
+-n Non-empty string
+  if [ -z/in "$string" ]; then
+
+FILES:
+-f Is a regular file
+-d Is a directory
+-e Exists
+-r Is readable
+
+&& AND
+|| OR
+! NOT
+Prefer [[]] Allows to use regex
+=~ Tests whether a string matches an extended reqular expression.
+
+case
+
+SYNTAX:
+
+case "$varaable" in
+  pattern1)
+    commands
+  ;;
+  pattern2
+    commands
+  ;;
+  *)
+    default
+  ;;
+esac
+
+case supports glob patterns, not regex
+
+;& Run next block unconditionally
+;;& Keep testing remaining patterns
+
+LOOPS:
+
+SYNTAX:
+
+FOR LOOP
+for item in apple banana cherry; do
+  echo "$item"
+done
+
+C-STYLE LOOP
+for ((i=0; i<5; i++)); do
+  echo "$i"
+done
+
+LOOP OVER AN ARRAY
+fruits=("apple" "banana" "cherry")
+for fruit in "${fruits[@]}"; do
+  echo "$fruit"
+done
+
+LOOP OVER FILES
+for file in /etc/*.conf; do
+  echo "$file"
+done
+
+LOOP OVER A RANGE:
+for i in {1..5}; do
+  echo "$i"
+done
+
+WITH STEP:
+for i in {0..20..5}; do
+  echo "$i"
+done
+
+WHILE LOOP:
+i=0
+while [ "$i" -lt 5 ]; do
+  echo "$1"
+  ((i++))
+done
+
+INFINITE LOOP:
+while true; do
+  command
+done
+
+READ FILE LINE BY LINE:
+while IFS= read -r line; do
+  echo "$line"
+done < file.txt
+
+UNTIL LOOP:
+
+Runs until condition becomes true(opposite of while).
+
+i=0
+until [ "$i" -ge 5 ]; do
+  echo "$i"
+  ((i++))
+done
+
+break and continue works like in another pl's.
+
+break n exist n loops.
+
+ARRAYS:
+
+array=("element1" "element2" "element3")
+
+array[0] -> element1
+array[-1] Last element
+array[@] All elements
+#array[@] Length
+
+array[1]="element22" update
+array+=("element4") Append one
+array+=("element4" "element5") Append many
+unset array[1] Delete element
+
+mapfile -t lines < file.txt
+echo "${lines[0]}" First line
+echo "${#lines[@]}" Nember of lines
+
+Slice:
+
+array[@]:1:2 2 elements starting at index 1
+
+Assoclative Arrays(key-value):
+
+declare -A
+
+EXAMPLE:
+declare -A person
+person[name]="Alice"
+person[age]="30"
+person[city]="Vienna"
+
+echo "${person[name]}" -> Alice
+echo "${!person[@]}" -> All keys
+echo "${person[@]}" -> All values
+
+TYPES:
+
+Default: Everything is a String.
+
+declare -i Integer
+declare -r Readonly(constant)
+declare -l Auto-lowercase
+declare -u Auto-uppercase
+declare -a Indexed array
+declare -A Assoclative array
+declare -x Export to environment(like export)
+declare -p Prints type flags and value
+
+-- Means plain string.
+
+Bash doesn't support floats natively - use '| bc'
+
+Arithmetic with (( )).
+(( num++ ))
+(( num += 10 ))
+
+FUNCTIONS:
+
+SYNTAX:
+
+function() {
+  statement
+}
+
+CALL:
+
+function
+
+ARGUMENTS:
+
+function() {
+  echo "$1"
+}
+
+function "arg1" -> echo arg1
+function "arg2" -> echo arg2
+
+RETURN VALUES:
+
+Bash functions return exit codes (0-255), not value
+
+is_even() {
+  (( $1 % 2 == 0 ))
+}
+
+if is_even; then
+  echo "even"
+fi
+
+To return actual data, use echo with $()
+
+square() {
+  echo $(( $1 * $1 ))
+}
+
+result=$(square 5)
+echo "$result"
+
+LOCAL VARIABLES:
+
+local variable=value
+
+change() {
+  local x=99
+  echo "$x" -> "99"
+}
+
+EXIT CODE WITH RETURN:
+
+return 0 in the end of of function if success.
+
+exit 'number' Stop script with failure code 'number'
+
+exit 1 Stop script with failure code 1
+exit 0 Success
+
+SET:
+
+set options put this at the top of script
+
+set -e Exit immediately on error
+set -u Treat unset variables as errors
+set -x Print each command before running(debug)
+set -o pipefail Catch errors inside pipes
+set -n Dry run - parse but don't execute
+set +e Turn off -e
+set +x Trun off -x
+
+TRAP:
+
+trap runs a command when the script receives a signal or exits.
+
+trap 'command' SIGNAL
+
+SIGNALS:
+
+EXIT Script exits(any reason)
+INT Ctrl + C
+TERM Kill command
+ERR Any command fails
+DEBUG Before any command
+RETURN Function returns
+
+EXAMPLE:
+
+tmpfile=$(mktemp)
+trap 'rm -f "$tmpfile"' EXIT Always runs on exit
+echo "working..." > "$tmpfile"
+
+trap 'echo "Interrupted!"; exit' INT TERM Multiple signals
+
+Handling errors manually:
+
+cp file.txt backup.txt || echo "Copy failed"
+cp file.txt backup.txt || exit 1
+
+CHAINING:
+
+mkdir dir && cd dir && echo "ready" || echo "something failed"
+
+BACKGROUND PROCESS:
+
+& Background process
+
+command & Run in background
+
+wait Wait for all background jobs to finish
+wait $pid Wait for $pid background process to finish
+
+Subshells () Child process, Changes inside don't affect the parent
+
+EXAMPLES:
+
+x=10
+
+(
+  x=99
+  echo "$x" -> 99
+)
+
+echo "$x" -> 10
+
+Command grouping {} Runs in the current shell changes persist
+
+x=10
+{
+  x=99
+  echo "$x" -> 99
+}
+echo "$x" -> 99
+
+{
+  echo "line 1"
+  echo "line 2"
+  echo "line 3"
+} > output.txt All output goes to file
+
+eval Execute string as command
+
+cmd="echo hello"
+eval "$cmd" -> "hello"
+
+var="name"
+eval "${var}=Alice"
+echo "$name" -> Alice
+
+${!} Safer alternative to eval for dynamic variable names
+
+name="Alice"
+var="name"
+echo "${!var}" -> Alice - Reads value of name
+
+source Runs a file in the current shell
+source file.sh == . file.sh
+
+EXAMPLES:
+
+file1.sh:
+var1="value1"
+var2="value2"
+var3="value3"
+
+file2.sh:
+source file1.sh
+echo "$var1" -> value1
+echo "$var2" -> value2
+
+source file VS ./file
+same shell      new shell
+vars persist    vars don't persist 
+funcs persist   funcs don't persist
+
+timeout 'number' Do something after 'number' seconds

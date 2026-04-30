@@ -7,3 +7,4 @@ require("config.autocmds")
 -- vim.cmd.colorscheme("black-metal-theme-neovim")
 
 require("config.diagnostics")
+require("plugins.yazi")

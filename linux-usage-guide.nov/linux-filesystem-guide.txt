@@ -1,0 +1,79 @@
+/(root)
+|
+CORE DIRECTORIES:
+|
+/bin - Essential binaries
+/etc - Config files
+/home - User directories
+/var - Variable data
+/usr - User programs
+/dev - Devices
+|
+SYSTEM and SPECIAL DIRECTORIES:
+|
+/proc - Kernel info(virtual)
+/sys - Hardware interface
+/tmp - Temp files(cleared)
+/sbin - Admin binaries
+/lib - Shared libraries
+/boot - Bootloader files
+/opt - Optional software
+/mnt - Mount points
+/media - Removable drivers
+/srv - Service data
+/run - Runtime data(tmpfs)
+/root - Superuser home
+
+USEFUL FILES:
+
+/proc/cpuinfo - CPU info
+/proc/meminfo MEM info
+/proc/diskstats
+/proc/interrupts
+/proc/uptime - 2 numbers Seconds since boot and total CPU idle time
+               across all cores
+/proc/loadavg - 1, 5, 15-min load averages, running/total/threads, last PID created
+/proc/stat - CPU time breakdown(user, system, idle, iowait), context switches, boot time
+/proc/version - Kernel version string, compiler used to build it, and build timestamp
+/proc/<pid>/cmdline | tr '\0' ' ' - Full command used to launch the process 
+/proc/<pid>/status - Human-readable process info
+/proc/<pid>/fd/ - Directory or symlinks - one per open file descriptor. Points to the actual
+                  file
+/proc/<pid>/maps - Memory-mapped regions
+/proc/<pid>/smaps - Like maps but with detailed memory accounting per region
+/proc/<pid>/environ - The environment variables the process was started
+
+/proc/net/tcp - All TCP sockets: local/remote addresses in hex, state, UID,
+                ss and netstat read this
+/proc/net/arp - ARP table - IP to MAC mappings the kernel currently known about
+/proc/net/route - Kernel routing table in hex. ip route and route -n reads from here
+
+echo 0/1 > /proc/sys/net/ipv4/ip_forward - Enable/Disable IP forwarding
+
+/sys
+
+/sys/devices/system/cpu/cpu0/cpurreq/ - CPU frequency scaling: current speed, min/max limits
+                                        and governor(perfomance, powersave, schedutil,
+                                        ondemand, conservative, userspace)
+  perfomance - Perfomance: 10
+               Power save: 1
+               Latency: 0
+  powersave - Perfomance: 1
+              Power save: 10
+              Latency: 0
+  schedutil - Perfomance: 8
+              Power save: 7
+              Latency: 1
+  ondemand - Perfomance: 7
+             Power save: 6
+             Latency: 2
+  conservative - Perfomance: 5
+                 Power save: 8
+                 Latency: 4
+  userspace - custom 
+
+echo governor > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor - Change governor
+
+/sys/class/thermal/ - Hardware temperatures in millidegrees Celsius(divide by 1000 for C)
+
+echo 0/1 /sys/devices/system/cpu/cpuN/online - Take a CPU core offline or bring it back

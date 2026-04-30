@@ -5,10 +5,11 @@ if status is-interactive
    bind -M replace -m default jj "repaint"
     # Starship custom prompt
     #    starship init fish | source
-    alias ls='lsd'
+    alias ls='eza --icons=auto'
     alias cat='bat'
-    abbr y 'yazi'
     alias icat='kitty +kitten icat'
+
+    abbr y 'yazi'
 
     set fish_greeting
     starship init fish | source

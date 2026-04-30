@@ -1,0 +1,182 @@
+xargs sudo pacman -S --noconfirm --needed < file.txt
+
+xargs - program that reads items from stdin and passes them as arguments to a command
+it bridges gap between programs that output text and programs that expect arguments.
+
+xargs [options] [command [initial-args]]
+
+NOTE: arguments with spaces are split into separate args.
+
+-n Limit how many arguments are passed per command invocation.
+echo "a b c d e" | xargs -n 2 echo
+runs: echo a b -> echo c d -> echo e f
+
+-I{} {} is replaced with each input item
+echo "file.txt" | xargs -I{} cp {} /backup/
+
+-0 Null delimiter 
+
+-P Parallel execution
+find . -name "*.jpg" -print0 | xargs -0 -P4 -I{} convert {} {}.webp - Run 4 parallel workers
+
+-t Print each command before execution it
+
+-p Prompt before each command execution
+
+-r Don't run the command input is empty
+
+-L Use complete lines as arguments units(not words)
+
+sh -c Run complex shell expressions, pipelines, or multiple commands per item
+
+-a Red input from file directly
+
+-s Limit the total size of each command invocation
+
+wc - calculates a file's word, line, character or byte count.
+
+head -n, 'n' - number, Shows first 'n' lines.
+tail -n, 'n' - number, Shows last 'n' lines.
+
+tee Reads from stdin and writes to both stdout and a file simultaneously.
+-a Append to file instead of overwriting.
+-i Ignore interrupt signals.
+
+file Gets filetype of file
+
+pgrep Search for a process ID by process name
+awk '{print $1}' Print column 1
+
+0> stdin(Standart input) Redirect input to a file
+1> stdout(Standart ouput) Redirect output to a file
+2> stderr(Standart error) Redirect error to a file
+0< Feeds a file as input to a command
+> The same as 1>
+< The same as 0<
+>> Append to the end of file 
+2>> Append stderr and stdout to file
+&> Write both stdout and stderr to file
+2>&1 Redirect both stdout and stderr to a file
+
+command > /dev/null Discard output
+
+<() Treats command output as a file
+>() Write into a process
+
+sort -o Reads first, then writes
+
+git push https://username:token@github.com/username/repo.git Push to GitHub
+sudo nvim /etc/environment Open environment variable file
+
+sed:
+
+sed 'command' file
+echo 'value' | sed 'command'
+
+sed 's/old/new/' file Replace first match per line
+sed 's/old/new/g' file Replace all matches per line(global)
+sed 's/old/new/2' file Replace 2nd match per line
+sed 's/old/new/gi' file Case-Insensitive + global
+
+EXAMPLES:
+
+echo "hello world" | sed 's/world/bash/' -> "hello bash"
+echo "aabbaa" | sed 's/a/x/g' -> "xxbbxx"
+echo "Hello World" | sed 's/world/bash/i' -> "Hello Bash"
+
+EDIT FILE IN-PLACE WITH -i:
+
+sed -i 's/old/new/g' file.txt Edit file directly
+sed -i.bak 's/old/new/g' file.txt Edit + save backup as file.txt.bak
+
+DELETE LINES:
+
+sed '3d' file Delete line 3
+sed '2.5d' file Delete lines 2 to 5
+sed '/pattern/d' file Delete lines matching pattern
+sed '/^$/d' file Delete empty lines
+sed '/^#/d' file Delete comment lines
+
+PRINT LINES:
+
+sed -n '3p' file Print only line 3
+sed -n '2.5p' file Print lines 2-5
+sed -n '/pattern/p' file Print matching lines(like grep)
+
+sed '2.5s/old/new' file Substitute only on lines 2-5
+sed '/start/,/end/d' file Delte from "start" line to "end" line
+sed '1s/old/new' file Only on first line
+sed '$s/old/new/' file Only on last line
+
+INSERT/APPEND/CHANGE:
+
+sed '2i/new line' file Insert before line 2
+sed '2a/new line' file Append after line 2
+sed '2c/new line' file Replace line 2 entirely
+
+Supports extended regex: sed -E.
+
+sed -e Multiple commands or use semicolons
+
+sed -e 's/foo/bar/g' -e 's/baz/qux/g' file
+sed 's/foo/bar/g; s/baz/qux/g' file 
+
+// Delimiter, wrap the pattern
+
+awk:
+
+awk Processes text field by field
+
+$0 Whole line
+NR Current line number
+NF Number of fields
+FS Field separator(input)
+OFS Field separator(output)
+
+awk '{ print NR, $0 }' Print line number + whole line
+awk '{NR==3}' Print line 3
+awk 'NR>=2 && NR<=5' Print lines 2-5
+
+awk -F':' Use ':' as delimiter
+
+CONDITIONS:
+
+awk '$3 > 100' file Lines where col 3 > 100
+awk '/error/ { print $0 }' log.txt Lines matching pattern
+awk '$1 == "Alice" { print $2 }' file Filter by value
+
+MATH:
+
+awk '{ sum += $1 } END { print sum }' file Sum column
+awk '{ sum += $1 } END { print sum/NR }' file Average
+awk 'END { print NR }' file Count lines
+
+BEGIN and END blocks:
+
+awk '
+  BEGIN { print "Start" }
+  { print $1 }
+  END { print "Done" }
+' file
+
+cut Extract columns
+
+cut -f1 file.txt First field
+cut -f1,3 file.txt Fields 1 and 3
+cut -d':' -f1 /etc/passwd Use ':' as delimiter
+cut -c1-5 file.txt Character 1 to 5
+cut -c5- file.txt From character 5 onwards
+
+uniq Remove duplicates
+
+uniq Remove duplicates
+uniq -c Count occurrences
+uniq -d Only show duplicates
+uniq -u Only show unique lines
+
+ps aux All running processes
+killall 'name' Kill by name
+jobs List background jobs
+fg Bring last job to foreground
+Ctrl+Z Suspend foreground job
+

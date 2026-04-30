@@ -9,6 +9,8 @@ zz Center screen cursor
 zt Put cursor line at top
 zb Put cursor line at bottom
 
+? - Search match above the current position
+
 { Jump to previous empty line
 } Jump to next empty line
 
@@ -110,4 +112,26 @@ Ctrl + f Open command history window while in cmdline
 :1put a - Paste register 'a' after line 1
 
 :1p - Display line 1 in cmdline
-? - Search match above the current position
+
+:[range]g/pattern/cmd
+
+:g/pattern/d - Delete matching lines
+:g/pattern/p - Print matching lines
+:g/pattern/y A - Yank matching lines into register A
+:g/pattern/t$ - Copy matching lines to end of file
+:g/pattern/m0 - Move matching lines to top of file
+
+INVERSE :v or :g!:
+
+:v/pattern/d - Delete lines NOT matching
+:g!/pattern/d - Same thing
+:v/\S/d - Delete all blank/whitespaces-only lines
+
+RANGES:
+
+:g/TODO/norm A [DONE] - Append text to matching lines
+:g/^/m0 - Reverse the entire file
+:g/pattern/s/foo/bar/g - Substitute on matching lines only
+:g/pattern/normal @q - Run macro q on matching lines
+:g/^#/t$ - Copy all # lines to end of file
+:g/pattern/center - Center matching lines

@@ -1,3 +1,9 @@
-2026/04/24-21:38:21.517 3f0 Reusing MANIFEST /home/shumer/.config/chromium/Default/WebStorage/1/IndexedDB/indexeddb.leveldb/MANIFEST-000001
-2026/04/24-21:38:21.517 3f0 Recovering log #4
-2026/04/24-21:38:21.527 3f0 Reusing old log /home/shumer/.config/chromium/Default/WebStorage/1/IndexedDB/indexeddb.leveldb/000004.log 
+2026/04/30-14:01:18.187 4cd Reusing MANIFEST /home/shumer/.config/chromium/Default/WebStorage/1/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2026/04/30-14:01:18.187 4cd Recovering log #11
+2026/04/30-14:01:18.192 4cd Reusing old log /home/shumer/.config/chromium/Default/WebStorage/1/IndexedDB/indexeddb.leveldb/000011.log 
+2026/04/30-14:01:56.680 4cd Compacting 1@1 + 1@2 files
+2026/04/30-14:01:56.688 4cd Generated table #14@1: 184 keys, 16253 bytes
+2026/04/30-14:01:56.688 4cd Compacted 1@1 + 1@2 files => 16253 bytes
+2026/04/30-14:01:56.693 4cd compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/30-14:01:56.694 4cd Delete type=2 #5
+2026/04/30-14:01:56.694 4cd Delete type=2 #7

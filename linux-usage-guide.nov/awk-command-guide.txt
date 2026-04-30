@@ -1,0 +1,52 @@
+awk 'pattern { action }' file.txt
+
+awk 'pattern1 { action1 } pattern2 { action2 }' file
+
+COMMON PATTERNS:
+
+/regex/ - Lines matching regex
+NR==5 - Only line 5
+NF>3 - Lines with more than 3 fields
+$1=="foo" - First field equals "foo"
+BEGIN - Run before any input
+END - Run after all input
+
+FIELD VARIABLES:
+
+$0 - The entire current line
+$1 - First field
+$2 - Second field
+$NF - Last field
+NF - Number of fields
+NR - Current line number
+FNR - Line number in current file
+
+ACTIONS:
+
+gsub(/pat/, "rep") - Global replace in $0(or field)
+sub(/pat/, "rep") - Replace first match only
+split($0, arr, ":") - Split string into an array
+
+sprintf(fmt, ...) - Format a string without printing it
+toupper() / tolower() - Case conversion
+
+next - Skip remaining rules, move to next line
+exit - Stop processing entirely
+getline - Read the next line manually(or from a command)
+close("cmd") - Close a pipe or file
+
+print > "file" - Write to a file
+print >> "file" - Append to a file
+print | "cmd" - Pipe output to a command
+
+delete arr["key"] - Remove a key from an array
+
+Math functions: int(), sqrt(), sin(), cos(), log(), exp(), rand(), srand()
+Variable assignment: { sum += 3 } or { $1 = toupper($1) }
+
+EXAMPLES:
+
+awk -F, '{print $2}' file.csv - Print second column of a CSV-like file
+awk '/error/ {print}' log.txt - Print lines containing "error"
+awk '{print NR, $0}' file txt - Print line number and line
+awk '{print $NF}' file.txt - Print last field of every line

@@ -91,7 +91,6 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: -850
-        anchors.verticalCenterOffset: -2.5
 
         visible: root.memusage_visible
 
@@ -109,7 +108,6 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 820
-        anchors.verticalCenterOffset: -2.5
 
         visible: root.volume_visible
 
@@ -125,7 +123,6 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 930
-        anchors.verticalCenterOffset: -3
 
         visible: root.battery_visible
     }
@@ -137,7 +134,6 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 890
-        anchors.verticalCenterOffset: -3.5
 
         visible: root.network_visible
 
