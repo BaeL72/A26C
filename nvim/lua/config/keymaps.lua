@@ -34,11 +34,11 @@ map({ "n", "v" }, "<Leader>j", "<cmd>HopLine<cr>", { desc = "Hop Line" })
 
 -- RUST KEYMAPS
 
-map("n", "<leader>rr", "<cmd>RustLsp run<cr>", optsmap, { desc = "Rust Run" }, { ft = "rs" })
-map("n", "<leader>rR", "<cmd>RustLsp runnables<cr>", optsmap, { desc = "Rust Runnables" }, { ft = "rs" })
-map("n", "<leader>rh", "<cmd>RustLsp hover actions<cr>", optsmap, { desc = "Rust Hover Actions" }, { ft = "rs" })
-map("n", "<leader>rH", "<cmd>RustLsp hover range<cr>", optsmap, { desc = "Rust Hover Range" }, { ft = "rs" })
-map("n", "<leader>ra", "<cmd>RustLsp codeAction<cr>", optsmap, { desc = "Rust Code Action" }, { ft = "rs" })
+-- map("n", "<leader>rr", "<cmd>RustLsp run<cr>", optsmap, { desc = "Rust Run" }, { ft = "rs" })
+-- map("n", "<leader>rR", "<cmd>RustLsp runnables<cr>", optsmap, { desc = "Rust Runnables" }, { ft = "rs" })
+-- map("n", "<leader>rh", "<cmd>RustLsp hover actions<cr>", optsmap, { desc = "Rust Hover Actions" }, { ft = "rs" })
+-- map("n", "<leader>rH", "<cmd>RustLsp hover range<cr>", optsmap, { desc = "Rust Hover Range" }, { ft = "rs" })
+-- map("n", "<leader>ra", "<cmd>RustLsp codeAction<cr>", optsmap, { desc = "Rust Code Action" }, { ft = "rs" })
 
 -- DAP KEYMAPS
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "Toggle Breakpoint" })

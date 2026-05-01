@@ -57,9 +57,6 @@ PanelWindow {
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.verticalCenterOffset: -3.5
-        anchors.horizontalCenterOffset: -1
-
         visible: root.clock_visible
 
         dmy_fg: root.clock_DMY_fg
@@ -75,7 +72,6 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: -430
-        anchors.verticalCenterOffset: -1.5
 
         visible: root.workspaces_visible
 

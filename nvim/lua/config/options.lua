@@ -20,13 +20,13 @@ opt.relativenumber = false
 
 opt.cursorline = true
 
-vim.api.nvim_set_hl(0, "CursorLine", {
-	bg = "#1b1b1b",
-})
-
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {
-	bg = "#080808",
-})
+-- vim.api.nvim_set_hl(0, "CursorLine", {
+-- 	bg = "#1b1b1b",
+-- })
+--
+-- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {
+-- 	bg = "#080808",
+-- })
 
 opt.signcolumn = "auto"
 opt.wrap = false

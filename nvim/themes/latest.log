@@ -1,0 +1,12 @@
+++ ls /home/shumer/.config/nvim/lua/plugins
+++ grep -E '*theme.lua'
+grep: warning: * at start of expression
++ active_tmp=darkrose-theme.lua
++ active=darkrose-theme.lua
+++ ls /home/shumer/.config/nvim/themes
+++ grep -w black-metal-theme.lua
++ inactive_tmp=black-metal-theme.lua
++ inactive=black-metal-theme.lua
++ mv /home/shumer/.config/nvim/lua/plugins/darkrose-theme.lua /home/shumer/.config/nvim/themes
++ mv /home/shumer/.config/nvim/themes/black-metal-theme.lua /home/shumer/.config/nvim/lua/plugins
++ echo 'black-metal-theme.lua Moved Successfully'

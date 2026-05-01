@@ -57,6 +57,7 @@ awk '{print $1}' Print column 1
 2>> Append stderr and stdout to file
 &> Write both stdout and stderr to file
 2>&1 Redirect both stdout and stderr to a file
+>&2 Write to stderr 
 
 command > /dev/null Discard output
 
@@ -77,6 +78,31 @@ sed 's/old/new/' file Replace first match per line
 sed 's/old/new/g' file Replace all matches per line(global)
 sed 's/old/new/2' file Replace 2nd match per line
 sed 's/old/new/gi' file Case-Insensitive + global
+
+SED COMMANDS:
+
+s # Substitute
+d # Delete line
+p # Print line
+q # Quit
+a # Append text after line
+i # Insert text before line
+c # Change(replace) entire line
+y # Transliterate chars(like tr)
+n # Move to next line
+= # Print line number
+r file # Read and append file
+w file # Write line to file 
+
+Substitute FLAGS:
+
+g # All occurrences
+1,2,N # Only Nth occurrences
+p # Print line if command was made
+I or i # Case-Insensitive match(GNU sed)
+w file # Write result to file if match
+e # Execute result as shell command(GNU sed)
+m or M # Multi-line mode for ^ and $ (GNU sed)
 
 EXAMPLES:
 

@@ -1,8 +1,3 @@
-2026/04/30-13:52:30.039 41e Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/04/30-13:52:30.040 41e Recovering log #4
-2026/04/30-13:52:30.040 41e Level-0 table #7: started
-2026/04/30-13:52:30.042 41e Level-0 table #7: 1347 bytes OK
-2026/04/30-13:52:30.042 41e Recovering log #11
-2026/04/30-13:52:30.042 41e Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/000011.log 
-2026/04/30-13:52:30.046 41e Delete type=2 #13
-2026/04/30-13:52:30.047 41e Delete type=0 #4
+2026/05/01-13:53:20.617 382 Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/01-13:53:20.617 382 Recovering log #11
+2026/05/01-13:53:20.617 382 Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/000011.log 

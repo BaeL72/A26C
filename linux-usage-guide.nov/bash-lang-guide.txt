@@ -465,3 +465,10 @@ vars persist    vars don't persist
 funcs persist   funcs don't persist
 
 timeout 'number' Do something after 'number' seconds
+
+exec # DOES NOT RUN COMMANDS - It replaces the current shell process with the given command. Modifies the current shell's file
+                               descriptors permanently.
+
+exec 2>latest.log # All error write to latest.log
+
+exec python3 script.py # bash is gone Replace by python3.

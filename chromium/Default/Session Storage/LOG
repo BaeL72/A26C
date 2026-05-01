@@ -1,3 +1,6 @@
-2026/04/30-14:01:16.870 5 Reusing MANIFEST /home/shumer/.config/chromium/Default/Session Storage/MANIFEST-000001
-2026/04/30-14:01:16.873 5 Recovering log #77
-2026/04/30-14:01:16.875 5 Reusing old log /home/shumer/.config/chromium/Default/Session Storage/000077.log 
+2026/05/01-13:57:12.236 5 Reusing MANIFEST /home/shumer/.config/chromium/Default/Session Storage/MANIFEST-000001
+2026/05/01-13:57:12.238 5 Recovering log #77
+2026/05/01-13:57:12.239 5 Reusing old log /home/shumer/.config/chromium/Default/Session Storage/000077.log 
+2026/05/01-13:53:32.881 7 Level-0 table #81: started
+2026/05/01-13:53:32.964 7 Level-0 table #81: 26200 bytes OK
+2026/05/01-13:53:32.973 7 Delete type=0 #77

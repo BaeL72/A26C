@@ -1,9 +1,3 @@
-2026/04/30-14:02:36.044 4bc Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_claude.ai_0.indexeddb.leveldb/MANIFEST-000001
-2026/04/30-14:02:36.044 4bc Recovering log #7
-2026/04/30-14:02:36.094 4bc Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_claude.ai_0.indexeddb.leveldb/000007.log 
-2026/04/30-14:03:19.063 4bc Compacting 1@1 + 1@2 files
-2026/04/30-14:03:19.074 4bc Generated table #10@1: 152 keys, 9732 bytes
-2026/04/30-14:03:19.074 4bc Compacted 1@1 + 1@2 files => 9732 bytes
-2026/04/30-14:03:19.079 4bc compacted to: files[ 0 0 1 0 0 0 0 ]
-2026/04/30-14:03:19.080 4bc Delete type=2 #5
-2026/04/30-14:03:19.080 4bc Delete type=2 #7
+2026/05/01-11:57:23.979 384 Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_claude.ai_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/01-11:57:23.979 384 Recovering log #11
+2026/05/01-11:57:23.981 384 Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_claude.ai_0.indexeddb.leveldb/000011.log 

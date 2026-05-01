@@ -13,9 +13,20 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				automatic_enable = false,
-				exclude = {
-					"rust-analyzer",
+				automatic_enable = {
+					exclude = {
+						"rust_analyzer",
+					},
+				},
+
+				ensure_installed = {
+					"clangd",
+					"pyright",
+					"ruff",
+					"bashls",
+					"rust_analyzer",
+					"lua_ls",
+					"stylua",
 				},
 			})
 		end,
