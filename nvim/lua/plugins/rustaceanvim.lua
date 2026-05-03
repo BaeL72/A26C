@@ -1,22 +1,25 @@
 return {
 	"mrcjkb/rustaceanvim",
-	lazy = false,
-	ft = { "rust" },
-	config = function()
+	ft = "rust",
+	init = function()
 		vim.g.rustaceanvim = {
 			server = {
 				settings = {
 					["rust-analyzer"] = {
 						check = {
+							command = "clippy",
+							enable = true,
 							checkOnSave = false,
-							command = "check",
 						},
 						checkOnSave = {
-							enable = true,
 							command = "clippy",
+							enable = false,
 						},
 						diagnostics = {
 							enable = true,
+							experimental = {
+								enable = true,
+							},
 						},
 						inlayHints = {
 							typeHints = { enable = true },

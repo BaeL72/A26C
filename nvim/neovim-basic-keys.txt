@@ -71,6 +71,7 @@ gg=G # Autoindent entire file
 NUMBER>>/<< # Indent/Unindent NUBMER lines
 
 ^ # Jump to first non-blank char of line
+_ # Same as ^, but it accepts a count(NUMBER_)
 + # Down one line, land on first non-blank char
 - # Up one line, land on first non-blank char
 
@@ -91,6 +92,7 @@ q Stop recording
 @a Replay macro
 @@ Replay last macro
 10@a Replay 10 times
+q: # Command history
 
 ma Set mark 'a' at current position
 'a Jump to line of mark 'a

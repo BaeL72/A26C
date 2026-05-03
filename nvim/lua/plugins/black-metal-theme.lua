@@ -26,14 +26,14 @@ return {
 				number = "#f9e2af",
 				func = "#c200fb",
 				comment = "#585b70",
-				visual = "#2c2c2c",
-				bg = "#000000",
+				visual = "#3d096d",
+				bg = "#08090f",
 				property = "#ff8c36",
 				alt = "#89b4fa",
 				fg = "#c1c1c1",
 				keyword = "#c30f45",
 				operator = "#fab387",
-				--	line = "#5f4abb",
+				line = "#13161e",
 				--	constant = "#aaaaaa",
 			},
 
@@ -49,11 +49,12 @@ return {
 		-- nile, taake, thyrfing, *venom, windir
 
 		require("black-metal").load()
+
 		vim.api.nvim_set_hl(0, "Search", { bg = "#303030", fg = "#1bfd9c" })
 		vim.api.nvim_set_hl(0, "IncSearch", { bg = "#303030", fg = "#1bfd9c" })
 		vim.api.nvim_set_hl(0, "CurSearch", { bg = "#303030", fg = "#fbde37" })
 
-		vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#1c1c1c" })
-		-- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#fffeec" })
+		vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#060d0c" })
+		vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#1c1c1c", fg = "#edebdd" })
 	end,
 }

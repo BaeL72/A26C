@@ -1,0 +1,8 @@
+curl
+tar
+tree-sitter-cli
+fd
+ripgrep
+luarocks
+lua
+yazi

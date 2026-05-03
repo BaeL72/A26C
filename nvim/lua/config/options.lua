@@ -20,14 +20,6 @@ opt.relativenumber = false
 
 opt.cursorline = true
 
--- vim.api.nvim_set_hl(0, "CursorLine", {
--- 	bg = "#1b1b1b",
--- })
---
--- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {
--- 	bg = "#080808",
--- })
-
 opt.signcolumn = "yes:1"
 opt.wrap = false
 opt.showmode = false
@@ -47,31 +39,31 @@ opt.modeline = false
 opt.exrc = false
 opt.splitbelow = true
 
-local disabled_built_ins = {
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"matchit",
-	"tar",
-	"tarPlugin",
-	"rrhelper",
-	"spellfile_plugin",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
-	"tutor",
-	"rplugin",
-	"syntax",
-	"synmenu",
-	"optwin",
-	"compiler",
-	"bugreport",
-	"ftplugin",
-}
+-- local disabled_built_ins = {
+-- 	"2html_plugin",
+-- 	"getscript",
+-- 	"getscriptPlugin",
+-- 	"gzip",
+-- 	"logipat",
+-- 	"netrw",
+-- 	"netrwPlugin",
+-- 	"netrwSettings",
+-- 	"netrwFileHandlers",
+-- 	"matchit",
+-- 	"tar",
+-- 	"tarPlugin",
+-- 	"rrhelper",
+-- 	"spellfile_plugin",
+-- 	"vimball",
+-- 	"vimballPlugin",
+-- 	"zip",
+-- 	"zipPlugin",
+-- 	"tutor",
+-- 	"rplugin",
+-- 	"syntax",
+-- 	"synmenu",
+-- 	"optwin",
+-- 	"compiler",
+-- 	"bugreport",
+-- 	"ftplugin",
+-- }
