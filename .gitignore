@@ -1,9 +1,4 @@
-undodir/
-chromium
-cava
-dconf
-pulse
-yay
-gtk-3.0
-QtProject.conf
+cava/
+dconf/
+pulse/
 required.txt

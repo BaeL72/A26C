@@ -25,8 +25,6 @@ return {
 					"ruff",
 					"bashls",
 					"rust_analyzer",
-					"lua_ls",
-					"stylua",
 				},
 			})
 		end,

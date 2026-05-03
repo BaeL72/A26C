@@ -1,0 +1,14 @@
+2026/05/01-22:02:57.610 4a6c Reusing MANIFEST /home/shumer/.config/chromium/Default/WebStorage/16/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2026/05/01-22:02:57.610 4a6c Recovering log #4
+2026/05/01-22:02:57.610 4a6c Reusing old log /home/shumer/.config/chromium/Default/WebStorage/16/IndexedDB/indexeddb.leveldb/000004.log 
+2026/05/01-22:02:57.781 4a6f Level-0 table #8: started
+2026/05/01-22:02:57.785 4a6f Level-0 table #8: 28194 bytes OK
+2026/05/01-22:02:57.791 4a6f Delete type=0 #4
+2026/05/01-22:02:57.792 4a6d Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/05/01-22:02:57.792 4a6d Manual compaction at level-1 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at '\x00\x04\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00N\xf2Q\xdeyB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 478 : 1
+2026/05/01-22:02:57.792 4a6d Compacting 1@1 + 1@2 files
+2026/05/01-22:02:57.795 4a6d Generated table #9@1: 51 keys, 7002 bytes
+2026/05/01-22:02:57.795 4a6d Compacted 1@1 + 1@2 files => 7002 bytes
+2026/05/01-22:02:57.801 4a6d compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/01-22:02:57.801 4a6d Delete type=2 #8
+2026/05/01-22:02:57.802 4a6f Manual compaction at level-1 from '\x00\x04\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00N\xf2Q\xdeyB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 478 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)

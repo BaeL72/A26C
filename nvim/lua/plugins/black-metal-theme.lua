@@ -31,7 +31,7 @@ return {
 				property = "#ff8c36",
 				alt = "#89b4fa",
 				fg = "#c1c1c1",
-				keyword = "#9c27b0",
+				keyword = "#c30f45",
 				operator = "#fab387",
 				--	line = "#5f4abb",
 				--	constant = "#aaaaaa",

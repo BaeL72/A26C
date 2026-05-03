@@ -1,0 +1,22 @@
+2026/05/02-11:03:14.526 395 Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/02-11:03:14.526 395 Recovering log #11
+2026/05/02-11:03:14.526 395 Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/000011.log 
+2026/05/02-11:03:46.536 397 Level-0 table #14: started
+2026/05/02-11:03:46.541 397 Level-0 table #14: 4454 bytes OK
+2026/05/02-11:03:46.548 397 Delete type=0 #11
+2026/05/02-11:03:46.549 397 Manual compaction at level-0 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 98 : 1
+2026/05/02-11:03:46.549 397 Compacting 2@0 + 0@1 files
+2026/05/02-11:03:46.553 397 Generated table #15@0: 31 keys, 782 bytes
+2026/05/02-11:03:46.553 397 Compacted 2@0 + 0@1 files => 782 bytes
+2026/05/02-11:03:46.559 397 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/02-11:03:46.560 397 Delete type=2 #7
+2026/05/02-11:03:46.560 397 Delete type=2 #14
+2026/05/02-11:03:46.560 397 Manual compaction at level-0 from '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 98 : 1 .. (end); will stop at (end)
+2026/05/02-11:03:46.561 397 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 511 : 1
+2026/05/02-11:03:46.561 397 Compacting 1@1 + 1@2 files
+2026/05/02-11:03:46.564 397 Generated table #16@1: 23 keys, 808 bytes
+2026/05/02-11:03:46.565 397 Compacted 1@1 + 1@2 files => 808 bytes
+2026/05/02-11:03:46.571 397 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/02-11:03:46.571 397 Delete type=2 #5
+2026/05/02-11:03:46.572 397 Delete type=2 #15
+2026/05/02-11:03:46.572 397 Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 511 : 1 .. (end); will stop at (end)

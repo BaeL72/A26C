@@ -1,0 +1,18 @@
+2026/05/03-12:41:55.822 5 Reusing MANIFEST /home/shumer/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2026/05/03-12:41:55.827 5 Recovering log #559
+2026/05/03-12:41:55.827 5 Reusing old log /home/shumer/.config/chromium/Default/Local Storage/leveldb/000559.log 
+2026/05/03-12:44:01.160 7 Level-0 table #563: started
+2026/05/03-12:44:01.235 7 Level-0 table #563: 70771 bytes OK
+2026/05/03-12:44:01.244 7 Delete type=0 #559
+2026/05/03-12:49:59.308 7 Level-0 table #565: started
+2026/05/03-12:49:59.325 7 Level-0 table #565: 591833 bytes OK
+2026/05/03-12:49:59.337 7 Delete type=0 #562
+2026/05/03-12:49:59.338 7 Compacting 4@0 + 1@1 files
+2026/05/03-12:49:59.354 7 Generated table #566@0: 522 keys, 888750 bytes
+2026/05/03-12:49:59.354 7 Compacted 4@0 + 1@1 files => 888750 bytes
+2026/05/03-12:49:59.361 7 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/03-12:49:59.363 7 Delete type=2 #556
+2026/05/03-12:49:59.364 7 Delete type=2 #558
+2026/05/03-12:49:59.364 7 Delete type=2 #560
+2026/05/03-12:49:59.364 7 Delete type=2 #563
+2026/05/03-12:49:59.364 7 Delete type=2 #565

@@ -1,0 +1,75 @@
+2026/05/03-00:02:21.829 a4a Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_at.pinterest.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/03-00:02:21.829 a4a Recovering log #18
+2026/05/03-00:02:21.853 a4a Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_at.pinterest.com_0.indexeddb.leveldb/000018.log 
+2026/05/03-00:02:37.232 a4c Level-0 table #23: started
+2026/05/03-00:02:37.250 a4c Level-0 table #23: 1566623 bytes OK
+2026/05/03-00:02:37.256 a4c Delete type=0 #18
+2026/05/03-00:02:37.850 a4c Compacting 1@1 + 1@2 files
+2026/05/03-00:02:37.859 a4c Generated table #24@1: 170 keys, 34178 bytes
+2026/05/03-00:02:37.859 a4c Compacted 1@1 + 1@2 files => 34178 bytes
+2026/05/03-00:02:37.863 a4c compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:02:37.864 a4c Delete type=2 #20
+2026/05/03-00:02:37.864 a4c Delete type=2 #23
+2026/05/03-00:09:24.501 a4c Level-0 table #26: started
+2026/05/03-00:09:24.596 a4c Level-0 table #26: 1625765 bytes OK
+2026/05/03-00:09:24.604 a4c Delete type=0 #22
+2026/05/03-00:09:25.089 a4a Compacting 1@1 + 1@2 files
+2026/05/03-00:09:25.099 a4a Generated table #27@1: 128 keys, 29168 bytes
+2026/05/03-00:09:25.099 a4a Compacted 1@1 + 1@2 files => 29168 bytes
+2026/05/03-00:09:25.104 a4a compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:09:25.104 a4a Delete type=2 #24
+2026/05/03-00:09:25.104 a4a Delete type=2 #26
+2026/05/03-00:15:01.755 a59 Level-0 table #29: started
+2026/05/03-00:15:01.772 a59 Level-0 table #29: 1583672 bytes OK
+2026/05/03-00:15:01.778 a59 Delete type=0 #25
+2026/05/03-00:15:02.493 a4a Compacting 1@1 + 1@2 files
+2026/05/03-00:15:02.504 a4a Generated table #30@1: 89 keys, 9277 bytes
+2026/05/03-00:15:02.504 a4a Compacted 1@1 + 1@2 files => 9277 bytes
+2026/05/03-00:15:02.509 a4a compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:15:02.509 a4a Delete type=2 #27
+2026/05/03-00:15:02.509 a4a Delete type=2 #29
+2026/05/03-00:21:47.652 a4a Level-0 table #32: started
+2026/05/03-00:21:47.674 a4a Level-0 table #32: 1675647 bytes OK
+2026/05/03-00:21:47.680 a4a Delete type=0 #28
+2026/05/03-00:21:51.916 a4a Compacting 1@1 + 1@2 files
+2026/05/03-00:21:51.926 a4a Generated table #33@1: 79 keys, 13765 bytes
+2026/05/03-00:21:51.926 a4a Compacted 1@1 + 1@2 files => 13765 bytes
+2026/05/03-00:21:51.931 a4a compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:21:51.931 a4a Delete type=2 #30
+2026/05/03-00:21:51.931 a4a Delete type=2 #32
+2026/05/03-00:25:22.400 a4a Level-0 table #35: started
+2026/05/03-00:25:22.417 a4a Level-0 table #35: 1630563 bytes OK
+2026/05/03-00:25:22.422 a4a Delete type=0 #31
+2026/05/03-00:25:22.673 a59 Compacting 1@1 + 1@2 files
+2026/05/03-00:25:22.682 a59 Generated table #36@1: 85 keys, 7710 bytes
+2026/05/03-00:25:22.682 a59 Compacted 1@1 + 1@2 files => 7710 bytes
+2026/05/03-00:25:22.687 a59 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:25:22.687 a59 Delete type=2 #33
+2026/05/03-00:25:22.687 a59 Delete type=2 #35
+2026/05/03-00:30:52.513 a4c Level-0 table #38: started
+2026/05/03-00:30:52.530 a4c Level-0 table #38: 1608383 bytes OK
+2026/05/03-00:30:52.536 a4c Delete type=0 #34
+2026/05/03-00:31:05.169 a5b Compacting 1@1 + 1@2 files
+2026/05/03-00:31:05.185 a5b Generated table #39@1: 130 keys, 32110 bytes
+2026/05/03-00:31:05.185 a5b Compacted 1@1 + 1@2 files => 32110 bytes
+2026/05/03-00:31:05.191 a5b compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:31:05.191 a5b Delete type=2 #36
+2026/05/03-00:31:05.191 a5b Delete type=2 #38
+2026/05/03-00:37:32.744 a4c Level-0 table #41: started
+2026/05/03-00:37:32.829 a4c Level-0 table #41: 1777376 bytes OK
+2026/05/03-00:37:32.835 a4c Delete type=0 #37
+2026/05/03-00:37:40.280 a59 Compacting 1@1 + 1@2 files
+2026/05/03-00:37:40.295 a59 Generated table #42@1: 128 keys, 29992 bytes
+2026/05/03-00:37:40.296 a59 Compacted 1@1 + 1@2 files => 29992 bytes
+2026/05/03-00:37:40.300 a59 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:47:15.619 a4c Level-0 table #44: started
+2026/05/03-00:47:15.713 a4c Level-0 table #44: 1759732 bytes OK
+2026/05/03-00:47:15.720 a4c Delete type=2 #39
+2026/05/03-00:47:15.720 a4c Delete type=0 #40
+2026/05/03-00:47:15.720 a4c Delete type=2 #41
+2026/05/03-00:47:16.460 a5b Compacting 1@1 + 1@2 files
+2026/05/03-00:47:16.471 a5b Generated table #45@1: 67 keys, 4686 bytes
+2026/05/03-00:47:16.471 a5b Compacted 1@1 + 1@2 files => 4686 bytes
+2026/05/03-00:47:16.476 a5b compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/05/03-00:47:16.476 a5b Delete type=2 #42
+2026/05/03-00:47:16.476 a5b Delete type=2 #44
