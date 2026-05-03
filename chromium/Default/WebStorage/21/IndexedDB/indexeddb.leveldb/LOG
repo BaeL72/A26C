@@ -1,6 +1,0 @@
-2026/05/02-14:25:48.904 5c2 Creating DB /home/shumer/.config/chromium/Default/WebStorage/21/IndexedDB/indexeddb.leveldb since it was missing.
-2026/05/02-14:25:48.912 5c2 Reusing MANIFEST /home/shumer/.config/chromium/Default/WebStorage/21/IndexedDB/indexeddb.leveldb/MANIFEST-000001
-2026/05/02-14:25:52.202 5b4 Level-0 table #5: started
-2026/05/02-14:25:52.205 5b4 Level-0 table #5: 480 bytes OK
-2026/05/02-14:25:52.210 5b4 Delete type=0 #3
-2026/05/02-14:25:52.210 5b4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
