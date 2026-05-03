@@ -1,0 +1,20 @@
+ip addr # Assign, or inpect IP addresses on interfaces
+-4 # Filter protocol by IPv4
+-6 # Filter protocol by IPv6
+
+ip addr show dev DEVICE # Show addresses on specific interfaces.
+
+ip addr add 192.168.1.10/24 dev DEVICE # Assign an IP address
+ip addr del 192.168.1.10/24 dev DEVICE # Remove an IP address
+
+ip link # Control interface state(up/down), change MTU, or spoof a MAC address.
+          Changes here servive until reboot unless written to a config file
+          or a systemd-networkd.
+
+ip link set DEVICE up # Bring interface up
+ip link set DEVICE down # Bring interface down
+
+
+ip route # Read and write the kernel routing table, ip route get <host> is especially
+           handy for debugging - it tells you exactly which interface and gateaway would
+           be used to reach a given address.

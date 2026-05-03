@@ -1,9 +1,8 @@
-chromium
-cava
-dconf
-gtk-3.0
-pulse
-yay
-required.txt
+chromium/
+cava/
+dconf/
+pulse/
+yay/
+gtk-3.0/
 QtProject.conf
-
+required.txt

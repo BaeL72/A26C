@@ -206,3 +206,8 @@ jobs List background jobs
 fg Bring last job to foreground
 Ctrl+Z Suspend foreground job
 
+du # Disk usage
+stat # Detailed file info
+
+wget # Designed primarly for downloading files, especially recursively
+curl # Transfers data to or from a server, supporting many protocols

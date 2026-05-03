@@ -17,7 +17,7 @@ return {
   violet = '#9400d3',
   grey   = '#303030',
   green  = '#46B47F',
-  orange = '#ee9f27',
+  orange = '#ff6920',
   terminal_black = '#020403',
 }
 

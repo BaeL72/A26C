@@ -1,25 +1,59 @@
 return {
-	{
-		"metalelf0/black-metal-theme-neovim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("black-metal").setup({
-				theme = "emperor",
-				variant = "dark",
-				code_style = {
-					comments = "none",
-					conditionals = "italic",
-					functinons = "italic",
-					keywords = "none",
-					headings = "bold",
-					operators = "none",
-					keyword_return = "italic",
-					strings = "none",
-					variables = "none",
-				},
-			})
-			vim.cmd.colorscheme("emperor")
-		end,
-	},
+	"metalelf0/black-metal-theme-neovim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("black-metal").setup({
+			theme = "emperor",
+			variant = "dark",
+			alt_bg = false,
+
+			code_style = {
+				comments = "none",
+				conditionals = "italic",
+				functions = "italic",
+				headings = "none",
+				operators = "none",
+				keyword_return = "italic",
+				keywords = "italic",
+				strings = "none",
+				variables = "none",
+			},
+
+			colors = {
+				string = "#5bb450",
+				type = "#7799bb",
+				number = "#f9e2af",
+				func = "#c200fb",
+				comment = "#585b70",
+				visual = "#2c2c2c",
+				bg = "#000000",
+				property = "#ff8c36",
+				alt = "#89b4fa",
+				fg = "#c1c1c1",
+				keyword = "#9c27b0",
+				operator = "#fab387",
+				--	line = "#5f4abb",
+				--	constant = "#aaaaaa",
+			},
+
+			diagnostics = {
+				darker = true,
+				undercurl = true,
+				background = true,
+			},
+		})
+
+		-- *emperor, bathory, burzum, *dark-funeral, *darkthrone,
+		-- gorgoroth, *immortal, impaled-nazarene, khold, marduk, mayhem,
+		-- nile, taake, thyrfing, *venom, windir
+
+		require("black-metal").load()
+		vim.api.nvim_set_hl(0, "Search", { bg = "#303030", fg = "#1bfd9c" })
+		vim.api.nvim_set_hl(0, "IncSearch", { bg = "#303030", fg = "#1bfd9c" })
+		vim.api.nvim_set_hl(0, "CurSearch", { bg = "#303030", fg = "#fbde37" })
+
+		vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#1c1c1c" })
+		-- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#fffeec" })
+	end,
 }

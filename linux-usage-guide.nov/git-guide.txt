@@ -29,6 +29,8 @@ git reset --hard HEAD~1 # Undo last commit, discard changes
 git revert <hash> # Revert a commit (safe, adds new commit)
 git commit --amend -m "NEW MSG" # Amend the last commit message
 
+HEAD # is a current branch
+
 git branch -a # List all branches incl. remote
 git switch -c BRANCHNAME # Create and switch branch
 git branch -d BRANCHNAME # Delete merged branch

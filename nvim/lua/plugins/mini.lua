@@ -4,13 +4,13 @@ return {
 		config = function()
 			require("mini.surround").setup({
 				mappings = {
-					add = "\\a",
-					delete = "\\d",
-					find = "\\f",
-					find_left = "\\F",
-					highlight = "\\h",
-					replace = "\\r",
-					update_n_lines = "\\n",
+					add = "<space>sa",
+					delete = "<space>sd",
+					find = "<space>sf",
+					find_left = "<space>sF",
+					highlight = "<space>sh",
+					replace = "<space>sr",
+					update_n_lines = "<space>sn",
 				},
 			})
 		end,

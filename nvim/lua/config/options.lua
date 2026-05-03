@@ -28,7 +28,7 @@ opt.cursorline = true
 -- 	bg = "#080808",
 -- })
 
-opt.signcolumn = "auto"
+opt.signcolumn = "yes:1"
 opt.wrap = false
 opt.showmode = false
 opt.expandtab = true
