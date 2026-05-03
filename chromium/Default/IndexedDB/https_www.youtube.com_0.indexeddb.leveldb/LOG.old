@@ -1,8 +1,0 @@
-2026/04/30-13:28:01.668 d28 Reusing MANIFEST /home/shumer/.config/chromium/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/04/30-13:28:01.668 d28 Recovering log #21
-2026/04/30-13:28:01.671 d28 Level-0 table #25: started
-2026/04/30-13:28:01.676 d28 Level-0 table #25: 220697 bytes OK
-2026/04/30-13:28:01.676 d28 Recovering log #25
-2026/04/30-13:28:01.677 d28 Reusing old log /home/shumer/.config/chromium/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000025.log 
-2026/04/30-13:28:01.681 d28 Delete type=2 #27
-2026/04/30-13:28:01.681 d28 Delete type=0 #21
