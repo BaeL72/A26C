@@ -21,4 +21,10 @@ return {
 			require("mini.move").setup()
 		end,
 	},
+	{
+		"nvim-mini/mini.cursorword",
+		config = function()
+			require("mini.cursorword").setup({})
+		end,
+	},
 }

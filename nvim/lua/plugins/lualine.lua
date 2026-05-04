@@ -11,11 +11,11 @@ return {
   local colors = {
   blue   = '#1e90ff',
   cyan   = '#79dac8',
-  black  = '#080808',
+  black  = '#161415',
   white  = '#c6c6c6',
   red    = '#dd2233',
   violet = '#9400d3',
-  grey   = '#303030',
+  gray   = '#161415',
   green  = '#50fa7b',
   orange = '#ff9d00',
   terminal_black = '#020403',
@@ -38,9 +38,9 @@ return {
 			},
 
 			inactive = {
-				a = { fg = colors.white, bg = colors.black, gui = "bold" },
-				b = { fg = colors.white, bg = colors.black },
-				c = { fg = colors.white },
+				a = { fg = colors.black, bg = colors.white, gui = "bold" },
+				b = { fg = colors.black, bg = colors.white },
+				c = { fg = colors.white, bg = "#000000" },
 			},
 		}
 

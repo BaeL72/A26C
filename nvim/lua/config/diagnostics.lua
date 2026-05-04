@@ -35,6 +35,12 @@ vim.diagnostic.config({
 		active = true,
 		-- The values table defines the text and highlight for each severity.
 		-- Priority is automatically handled by the severity number.
+		--	text = {
+		--		[vim.diagnostic.severity.ERROR] = " E",
+		--		[vim.diagnostic.severity.WARN] = " W",
+		--		[vim.diagnostic.severity.HINT] = " H",
+		--		[vim.diagnostic.severity.INFO] = " I",
+		--	},
 		values = {
 			[severities.ERROR] = { text = icons.ERROR, texthl = "DiagnosticSignError" },
 			[severities.WARN] = { text = icons.WARN, texthl = "DiagnosticSignWarn" },

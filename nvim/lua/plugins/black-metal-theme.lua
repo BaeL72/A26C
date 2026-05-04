@@ -26,7 +26,7 @@ return {
 				number = "#f9e2af",
 				func = "#c200fb",
 				comment = "#585b70",
-				visual = "#3d096d",
+				visual = "#320b35",
 				bg = "#08090f",
 				property = "#ff8c36",
 				alt = "#89b4fa",
