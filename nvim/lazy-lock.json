@@ -20,7 +20,7 @@
   "nvim-dap": { "branch": "master", "commit": "45a69eba683a2c448dd9ecfc4de89511f0646b5f" },
   "nvim-dap-ui": { "branch": "master", "commit": "1a66cabaa4a4da0be107d5eda6d57242f0fe7e49" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6" },
-  "nvim-highlight-colors": { "branch": "main", "commit": "e2cb22089cc2358b2b995c09578224f142de6039" },
+  "nvim-highlight-colors": { "branch": "main", "commit": "e4c7af0211866162d999ce0bdd6a029302e19139" },
   "nvim-lspconfig": { "branch": "master", "commit": "31026a13eefb20681124706a79fc1df6bf11ab27" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
@@ -28,7 +28,7 @@
   "oil-git.nvim": { "branch": "main", "commit": "85731c6e0deb6da473ca627f09b7de6ca0f07435" },
   "oil.nvim": { "branch": "master", "commit": "0fcc83805ad11cf714a949c98c605ed717e0b83e" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "rustaceanvim": { "branch": "main", "commit": "9d114ec7fd42cf44cdb96d933330789bc1e8a52a" },
+  "rustaceanvim": { "branch": "main", "commit": "524d8bedd31c0e5ca6de4fa344750401d109c0af" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c" },
   "telescope.nvim": { "branch": "master", "commit": "f04ab730b8f9c6bf3f54a206d0dcddfd70c52d59" }
 }

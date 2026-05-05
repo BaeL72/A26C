@@ -38,9 +38,9 @@ return {
 			},
 
 			inactive = {
-				a = { fg = colors.black, bg = colors.white, gui = "bold" },
-				b = { fg = colors.black, bg = colors.white },
-				c = { fg = colors.white, bg = "#000000" },
+				a = { fg = colors.white, bg = "#000000", gui = "bold" },
+				b = { fg = colors.white, bg = "#000000" },
+				c = { fg = colors.white, bg = "#13161e" },
 			},
 		}
 

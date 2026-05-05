@@ -1,8 +1,8 @@
 local icons = {
-	ERROR = "  ", -- A common error icon
-	WARN = "  ", -- A common warning icon
-	INFO = "  ", -- An info icon
-	HINT = "  ", -- A hint icon
+	ERROR = "", -- A common error icon
+	WARN = "", -- A common warning icon
+	INFO = "", -- An info icon
+	HINT = "", -- A hint icon
 }
 
 local severities = vim.diagnostic.severity
@@ -32,20 +32,14 @@ vim.diagnostic.config({
 	severity_sort = true,
 	-- Show signs in the gutter.
 	signs = {
-		active = true,
+		-- active = true,
 		-- The values table defines the text and highlight for each severity.
 		-- Priority is automatically handled by the severity number.
-		--	text = {
-		--		[vim.diagnostic.severity.ERROR] = " E",
-		--		[vim.diagnostic.severity.WARN] = " W",
-		--		[vim.diagnostic.severity.HINT] = " H",
-		--		[vim.diagnostic.severity.INFO] = " I",
-		--	},
-		values = {
-			[severities.ERROR] = { text = icons.ERROR, texthl = "DiagnosticSignError" },
-			[severities.WARN] = { text = icons.WARN, texthl = "DiagnosticSignWarn" },
-			[severities.INFO] = { text = icons.INFO, texthl = "DiagnosticSignInfo" },
-			[severities.HINT] = { text = icons.HINT, texthl = "DiagnosticSignHint" },
+		text = {
+			[severities.ERROR] = " E", -- icons.ERROR,
+			[severities.WARN] = " W", -- icons.WARN,
+			[severities.INFO] = " I", -- icons.INFO,
+			[severities.HINT] = " H", -- icons.HINT,
 		},
 	},
 
