@@ -4,7 +4,7 @@ import QtQuick
 PanelWindow {
     id: root
 
-    property int generalHeight: 35
+    property int generalHeight: 20
 
     property string backgroundColor: "#000000"
     property string separator1Color: "#ffffff"
@@ -56,6 +56,7 @@ PanelWindow {
 
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.clock_visible
 
@@ -72,6 +73,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: -430
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.workspaces_visible
 
@@ -86,7 +88,8 @@ PanelWindow {
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.horizontalCenterOffset: -850
+        anchors.horizontalCenterOffset: -865
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.memusage_visible
 
@@ -104,6 +107,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 820
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.volume_visible
 
@@ -119,6 +123,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 930
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.battery_visible
     }
@@ -130,6 +135,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.horizontalCenterOffset: 890
+        anchors.verticalCenterOffset: -1.5
 
         visible: root.network_visible
 

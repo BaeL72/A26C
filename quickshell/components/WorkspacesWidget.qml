@@ -30,7 +30,7 @@ Item {
                 property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
                 color: isActive ? root.active_color : (ws ? root.inwork_color : root.inactive_color)
                 text: index + 1
-                font.pixelSize: isActive ? 21 : 15
+                font.pixelSize: isActive ? 18 : 15
                 font.family: "Google Sans Flex"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

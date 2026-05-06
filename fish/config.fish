@@ -12,6 +12,7 @@ if status is-interactive
   alias ls='eza --icons=auto'
   alias cat='bat'
   alias icat='kitty +kitten icat'
+  alias pdf='DISPLAY=:0 zathura'
 
   abbr y 'yazi'
   abbr !! --position anywhere --function last_command

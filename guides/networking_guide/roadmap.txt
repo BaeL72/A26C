@@ -1,0 +1,52 @@
+[-] Level 1:
+[-]  OSI Model, TCP/IP - how it works and for what it using.
+[-]  IP addressing - subnetworks, CIDR, private vs public. 
+[-]  TCP vs UDP - differences, when what to use.
+[-]  DNS - Basic process of resolution.
+[-]  HTTP - request/response, methods, code status.
+[-]  Main PORTs.
+[-]  Wireshark - Catch own HTTP trafic.
+[-]  nmap - Understand what each line mean.
+[-]  curl for HTTP - Read headers of request and answers.
+[-] Level 2:
+[-]  Full TCP - flags, lifecycle, congestion control.
+[-]  IP packet - each field, TTL, fragmentation.
+[-]  TLS handshake - certificates, cipher suites, PKI.
+[-]  DNS deeper - All records types, DNSSEC.
+[-]  ARP - How it works, ARP table.
+[-]  VLAN, NAT - mechanisms.
+[-]  Wireshark - to take apart full TLS handshake.
+[-]              Recover HTTP session from pcap file.
+[-]              To analyze DNS trafic.
+[-]  nmap - To understand the difference between scaning types.
+[-]  Scapy - first steps:
+[-]          Send ICMP packet manually.
+[-]          Do ARP request.
+[-]  VirtualBox.
+[-] Level 3:
+[-]  BGP and internet-routing - AS, prefix hijacking.
+[-]  Kerberos - AS-REQ/REP, TGS, attacks.
+[-]  NTLM - challenge-response, relay attacks.
+[-]  HTTP/2, HTTP/3, WebSockets.
+[-]  All attacks on DNS detailed.
+[-]  Firewall evasion technics.
+[-]  SMB, RDP, WinRM - protocols for lateral movement.
+[-]  Turn on IP forwarding.
+[-]  ARP spoofing with arpspoof.
+[-]  TLS analyze via sslscan.
+[-]  testssl.sh - complex analyze.
+[-]  Own PORT scanner.
+[-] Level 4:
+[-]  Read RFC.
+[-]  Create(Python/C):
+[-]    TCP client via raw sockets.
+[-]    DNS resolver without using system libs.
+[-]    HTTP/1.1 client from zero.
+[-]    Simple TLS analyzer(read handshake).
+[-]    ARP scanner subnet.
+[-]    Traceroute own realization.
+[-]    Kernel networking - how Linux handle packages(netfilter, iptables internals).
+[-]    eBPF - netevents interception on the kernel level.
+[-]    QUIC protocol - how HTTP/3 working above UDP.
+[-]    BGP security - RPKI, route filtering.
+[-]    Zero trust networking - modern segmentation approaches.

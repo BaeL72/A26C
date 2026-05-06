@@ -1,0 +1,6 @@
+Interception # Перехоплення;
+Envelope # Обгортка;
+Strips off # Знамає, скидає;
+Upward # Вгору;
+Vendors # Постачальники, продавці, виробники;
+Interoperable # Сумісний;

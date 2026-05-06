@@ -6,4 +6,4 @@ htop/
 required.txt
 dconf/
 pulse
-nvim/undodir
+nvim/undodir/

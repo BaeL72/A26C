@@ -42,7 +42,7 @@ Item {
         color: "black"
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
-        border.width: 3
+        border.width: 0
         border.color: root.mem_border_color
         radius: 15
 
@@ -60,6 +60,7 @@ Item {
     }
     Rectangle {
         id: mem_circle
+        visible: false
         width: root.actual_mem_height
         height: root.actual_mem_height
         color: root.mem_bar_color
@@ -70,6 +71,7 @@ Item {
         radius: 15
 
         Text {
+          visible: false
             anchors.centerIn: mem_circle
             anchors.horizontalCenterOffset: -1.5
             verticalAlignment: Text.AlignVCenter
