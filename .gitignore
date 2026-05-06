@@ -1,9 +1,10 @@
 github-copilot/
 chromium/
-cava/
 btop/
 htop/
 required.txt
 dconf/
-pulse
+pulse/
 nvim/undodir/
+yay/
+tree-sitter/

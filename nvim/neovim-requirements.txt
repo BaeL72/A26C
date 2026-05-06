@@ -4,5 +4,8 @@ tree-sitter-cli
 fd
 ripgrep
 luarocks
-lua
+lua51
 yazi
+zip
+unzip
+cargo
