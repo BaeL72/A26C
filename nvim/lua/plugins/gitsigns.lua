@@ -3,26 +3,32 @@ return {
 	config = function()
 		require("gitsigns").setup({
 			signs = {
-				-- add = { text = " ┃" },
-				-- change = { text = " ┃" },
-				-- delete = { text = " _" },
-				-- topdelete = { text = " ‾" },
-				-- changedelete = { text = " ~" },
-				-- untracked = { text = " ┆" },
-				add = { text = " +" },
-				change = { text = " ~" },
-				delete = { text = " -" },
-				topdelete = { text = " -" },
+				add = { text = " ┃" },
+				change = { text = " ┃" },
+				delete = { text = " _" },
+				topdelete = { text = " ‾" },
 				changedelete = { text = " ~" },
-				untracked = { text = " ?" },
+				untracked = { text = " ┆" },
+				-- add = { text = " +" },
+				-- change = { text = " ~" },
+				-- delete = { text = " -" },
+				-- topdelete = { text = " -" },
+				-- changedelete = { text = " ~" },
+				-- untracked = { text = " ?" },
 			},
 			signs_staged = {
-				add = { text = " +" },
-				change = { text = " ~" },
-				delete = { text = " -" },
-				topdelete = { text = " -" },
+				-- add = { text = " +" },
+				-- change = { text = " ~" },
+				-- delete = { text = " -" },
+				-- topdelete = { text = " -" },
+				-- changedelete = { text = " ~" },
+				-- untracked = { text = " ?" },
+				add = { text = " ┃" },
+				change = { text = " ┃" },
+				delete = { text = " _" },
+				topdelete = { text = " ‾" },
 				changedelete = { text = " ~" },
-				untracked = { text = " ?" },
+				untracked = { text = " ┆" },
 			},
 			signs_staged_enable = true,
 			signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -57,17 +63,17 @@ return {
 				col = 1,
 			},
 		})
-		vim.api.nvim_set_hl(0, "GitsignsAdd", { fg = "#00ff00" })
-		vim.api.nvim_set_hl(0, "GitsignsChange", { fg = "#ffff00" })
-		vim.api.nvim_set_hl(0, "GitsignsDelete", { fg = "#ff0000" })
-		vim.api.nvim_set_hl(0, "GitsignsChangedelete", { fg = "#ffff00" })
-		vim.api.nvim_set_hl(0, "GitSignsTopdelete", { fg = "#ff0000" })
-		vim.api.nvim_set_hl(0, "GitSignsUntracked", { fg = "#00ffff" })
-		vim.api.nvim_set_hl(0, "GitsignsStagedAdd", { fg = "#00ff00" })
-		vim.api.nvim_set_hl(0, "GitsignsStagedChange", { fg = "#ffff00" })
-		vim.api.nvim_set_hl(0, "GitsignsStagedDelete", { fg = "#ff0000" })
-		vim.api.nvim_set_hl(0, "GitsignsStagedChangedelete", { fg = "#ffff00" })
-		vim.api.nvim_set_hl(0, "GitSignsStagedTopdelete", { fg = "#ff0000" })
-		vim.api.nvim_set_hl(0, "GitSignsStagedUntracked", { fg = "#00ffff" })
+		vim.api.nvim_set_hl(0, "GitsignsAdd", { fg = "#70892e" })
+		vim.api.nvim_set_hl(0, "GitsignsChange", { fg = "#ffeda8" })
+		vim.api.nvim_set_hl(0, "GitsignsDelete", { fg = "#d9544d" })
+		vim.api.nvim_set_hl(0, "GitsignsChangedelete", { fg = "#ffeda8" })
+		vim.api.nvim_set_hl(0, "GitSignsTopdelete", { fg = "#d9544d" })
+		vim.api.nvim_set_hl(0, "GitSignsUntracked", { fg = "#d5d4ff" })
+		vim.api.nvim_set_hl(0, "GitsignsStagedAdd", { fg = "#70892e" })
+		vim.api.nvim_set_hl(0, "GitsignsStagedChange", { fg = "#ffeda8" })
+		vim.api.nvim_set_hl(0, "GitsignsStagedDelete", { fg = "#d9544d" })
+		vim.api.nvim_set_hl(0, "GitsignsStagedChangedelete", { fg = "#ffeda8" })
+		vim.api.nvim_set_hl(0, "GitSignsStagedTopdelete", { fg = "#d9544d" })
+		vim.api.nvim_set_hl(0, "GitSignsStagedUntracked", { fg = "#d5d4ff" })
 	end,
 }

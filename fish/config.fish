@@ -13,6 +13,7 @@ if status is-interactive
   alias cat='bat'
   alias icat='kitty +kitten icat'
   alias pdf='DISPLAY=:0 zathura'
+  alias ua='trans -b :uk'
 
   abbr y 'yazi'
   abbr !! --position anywhere --function last_command

@@ -2,13 +2,12 @@ NORMAL MODE:
 
 Ctrl + f Scroll full page down
 Ctrl + b Scroll full page up
-Ctrl + d Scroll half page down
-Ctrl + u Scroll half page up
+Ctrl + d Scroll half page down Ctrl + u Scroll half page up
 Ctrl + e Scroll down one line
 Ctrl + y Scroll up one line
 
-Ctrl + a Increment number under cursor
-Ctrl + x Decrement number under cursor
+Ctrl + a # Increment number under cursor
+Ctrl + x # Decrement number under cursor
 Ctrl + o # Jump back in jump list
 Ctrl + i # Jump forward in jump list
 Ctrl + g # Show file info, line count, position
@@ -186,19 +185,6 @@ Ctrl + f Open command history window while in cmdline
 
 :1p # Display line 1 in cmdline
 
-:[range]s/pattern/replacement/[flags]
-
-FLAGS:
-
-g # All occurrences on line(not just first)
-i # Case intensitive
-I # Case sensitive
-c # Confirm each replacement
-n # count matches only, don't replace
-e # suppress errors if no match
-p # print line after substitution
-& # reuse flags from last :s
-
 CONFIRM MODE PROMPTS:
 
 y # Yes, replace
@@ -221,6 +207,19 @@ REPLACEMENT Special Characters:
 \t # Tab
 \\ # Literal backslash
 ~ # Last replacement thing
+
+:[range]s/pattern/replacement/[flags]
+
+FLAGS:
+
+g # All occurrences on line(not just first)
+i # Case intensitive
+I # Case sensitive
+c # Confirm each replacement
+n # count matches only, don't replace
+e # suppress errors if no match
+p # print line after substitution
+& # reuse flags from last :s
 
 :[range]g/pattern/cmd
 
