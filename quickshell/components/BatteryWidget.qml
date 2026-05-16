@@ -24,6 +24,7 @@ Item {
     implicitHeight: 100
     implicitWidth: 18
     anchors.verticalCenter: parent.verticalCenter
+	rotation: 180
 
     Rectangle {
         id: volume_empty_bar
@@ -31,15 +32,16 @@ Item {
         anchors.fill: parent
         radius: 15
         color: root.battery_empty_color_bg
+		height: root.implicitHeight
     }
 
     Rectangle {
-        width: volume_empty_bar.width * root.battery.percentage
-        height: parent.height
+		width: parent.width
+        height: volume_empty_bar.height * root.battery.percentage
         topLeftRadius: 15
-        bottomLeftRadius: 15
-        topRightRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
-        bottomRightRadius: root.battery_lvl_in_percents === 100 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
+        topRightRadius: 15
+        bottomRightRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
+        bottomLeftRadius: root.battery_lvl_in_percents === 100 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
 		color: {
 			switch (root.battery.state) {
 				case UPowerDeviceState.Charging:

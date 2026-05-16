@@ -123,6 +123,12 @@ NUMBERS:
 -ge Greater then or equal
 -lt Less than
 -le Less than or equal
+-z True if string is empty
+-n True if string is not empty
+-f True if file exist
+-d True if directory exist
+-e True if file/directory exists
+
 
 STRINGS:
 

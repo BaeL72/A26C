@@ -5,7 +5,6 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter").setup({
-			ensure_installed = { "c", "cpp", "rust", "python" },
 			sync_install = false,
 			auto_install = false,
 			highlight = {

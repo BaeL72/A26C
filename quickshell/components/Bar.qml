@@ -91,7 +91,7 @@ PanelWindow {
 		anchors.centerIn: parent
 		anchors.horizontalCenter: parent.horizontalCenter
 
-		anchors.verticalCenterOffset: 230
+		anchors.verticalCenterOffset: 480
 		anchors.horizontalCenterOffset: 1.5
 
 		visible: root.battery_visible
@@ -106,7 +106,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         // anchors.horizontalCenterOffset: 820
-        anchors.verticalCenterOffset: 480
+        anchors.verticalCenterOffset: 230
 
         visible: root.volume_visible
 
