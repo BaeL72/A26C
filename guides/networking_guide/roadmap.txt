@@ -1,8 +1,8 @@
 [-] Level 1:
-[-]  OSI Model, TCP/IP - how it works and for what it using.
-[-]  IP addressing - subnetworks, CIDR, private vs public. 
-[-]  TCP vs UDP - differences, when what to use.
-[-]  DNS - Basic process of resolution.
+[+]  OSI Model, TCP/IP - how it works and for what it using.
+[+]  IP addressing - subnetworks, CIDR, private vs public. 
+[+]  TCP vs UDP - differences, when to use which.
+[+]  DNS - Basic process of resolution.
 [-]  HTTP - request/response, methods, code status.
 [-]  Main PORTs.
 [-]  Wireshark - Catch own HTTP trafic.

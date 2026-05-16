@@ -1,0 +1,9 @@
+curl -I LINK      | HEAD request, headers only
+curl -i LINK      | GET request + headers + body
+curl -v LINK      | Verbose: request + response headers + body
+curl -H "" LINK   | Send custom request headers
+curl -L LINK      | Redirest
+curl -D FILE LINK | Demp response headers to file
+curl -b FILE LINK | Send cookies from file
+curl -c FILE LINK | Save response cookies to file
+curl -v LINK      | Debugging - '>' are sent headers, '<' are received headers, '*' are curl info messages

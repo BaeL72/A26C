@@ -1,0 +1,41 @@
+Practice at scanme.nmap.org | LEGAL
+
+nmap 192.168.1.1           | Basic scan(top 1000 ports)
+nmap -p 80,443 192.168.1.1 | Scan specific ports
+nmap -p- 192.168.1.1       | Scan all 65535 ports
+nmap -sV 192.168.1.1       | Detect service versions
+nmap -O 192.168.1.1        | OS detection(requires root)
+nmap -A 192.168.1.1        | Aggressive scan(OS + version + scripts + traceroute)
+nmap -sn 192.168.1.1       | Ping sweep(host discovery only)
+nmap -sU 192.168.1.1       | UDP scan
+
+-sS | SYN scan (stealth, default with root)
+-sT | TCP connect scan (default without root)
+-sU | UDP scan
+-sA | ACK scan (firewall mapping)
+-sN | Null scan
+-sF | FIN scan
+-sX | Xmas scan
+
+-T0 | Paranoid (slowest, IDS evasion)
+-T1 | Sneaky
+-T2 | Polite
+-T3 | Normal (default)
+-T4 | Aggressive (faster, recommended for LANs)
+-T5 | Insane (fastest, may miss results)
+
+nmap -oN output.txt   | Normal text
+nmap -oX output.xml   | XML
+nmap -oG output.gnmap | Grepable
+nmap -oA output       | All three at once
+
+NSE(Nmap Scripting Engine) --script:
+
+auth      | Authentication checks
+brute     | Brute-force attacks
+discovery | Host/service discovery
+exploit   | Exploitation
+safe      | Non-intrusive scripts
+vuln      | Vulnerability detection
+
+--reason | To see why a port is marked open/closed

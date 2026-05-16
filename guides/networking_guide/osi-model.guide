@@ -1,0 +1,80 @@
+|#################|#########################|####################|####################|
+| 7. Application  | Network process to      | HTTP, FTP, Telnet, |                    |
+|      Layer      |    application          | DNS, etc.          |                    |
+|                 |                         |                    |                    |
+|#################|#########################|####################|                    |
+| 6. Presentation | Recognizing data        | HTML, MPEG, JPEG   |                    |
+|      Layer      |                         | IMAP, TLS, etc.    |        Data        |
+|                 |                         |                    |                    |
+|#################|#########################|####################|                    |
+| 5. Session      | Session establishment   | Sockets, Winsock,  |                    |
+|     Layer       | and termination         | APIs, etc.         |                    |
+|                 |                         |                    |                    |
+|#################|#########################|####################|####################|
+| 4. Transport    | End-to-end connectivity | TCP, UDP           |    Segment(TCP)    |
+|     Layer       | and reliability         |                    |    Diagram(UDP)    |
+|                 |                         |                    |                    |
+|#################|#########################|####################|####################|
+| 3. Network      | Logical addressing(IP)  | IPv4, IPv6, ICMP,  |                    |
+|     Layer       | and path determination  | IPsec, IGMP, OSPF, |      Packet        |
+|                 |                         | etc.               |                    |
+|#################|#########################|####################|####################|
+| 2. Data Link    | Physical addressing     | 802.3 Ethernet,    |                    |
+|     Layer       |       (MAC)             | 802.11 Wireless,   |       Frame        |
+|                 |                         | PPP, HDLC, etc.    |                    |
+|#################|#########################|####################|####################|
+| 1. Physical     | Media, signals and      | 100Base-FX,        |                    |
+|     Layer       | binary transmision      | 1000Base-LX,       |        Bits        |
+|                 |                         | RS-232, DSL, etc.  |                    |
+|#################|#########################|####################|####################|
+
+#--------------------------------------------------------------------------------------#
+|                 | The layer users interact with directly. It provides                |
+|                 | network services to applications - not the app itself,             |
+| 7. Application  | but the protocols apps use to communicate.                         |
+|      Layer      | Formats data for human-facing apps. Handles authentication,        |
+|                 | encryption negotiation, and data representation.                   |
+|                 | When browser fetches a page, it speaks HTTP here.                  |
+|-----------------|--------------------------------------------------------------------|
+|                 | Translates data between the application and the network. Handles   |
+|                 | encoding, compression, and encryption/decryption. Make sure        |
+| 6. Presentation | that data sent by one system can be read by another - handles      |
+|       Layer     | character sets(UTF-8 vs ASCII), image formats, TLS encryption.     |
+|                 | TLS encrypts your HTTPS traffic at this layer before handling      |
+|                 | it down.                                                           |
+|-----------------|--------------------------------------------------------------------|
+|                 | Open, manages, and closes communication sessions between two       |
+|                 | applications. Handles checkpointing so interrupted transfers       |
+| 5. Session      | can resume. Keeps track which conversation is which when           |
+|     Layer       | multiple are happening at once. Provides synchronisation           |
+|                 | points. When somebody resume a broken file download, the           |
+|                 | session layer's checkpointing made that possible.                  |
+|-----------------|--------------------------------------------------------------------|
+|                 | Ensures complete, reliable data transfer end-to-end. Handles       |
+|                 | segmentation, flow control, error correction, and port addressing. |
+| 4. Transport    | Breaks large messages into segments, numbers them, and             |
+|      Layer      | reassembles them at the destination, TCP guarantees delivery;      |
+|                 | UDP skips the guarantee for speed. TSP's seq/ack numbers           |
+|                 | (from our earlier diagram) live entirily at this layer.            |
+|-----------------|--------------------------------------------------------------------|
+|                 | Handles logical addressing and routing - deciding the best         |
+|                 | path across multiple networks to reach a destination. Adds         |
+| 3. Network      | source and destination IP addresses. Routers operate here,         |
+|     Layer       | inspecting IP headers to forward packets hop-by-hop toward         |
+|                 | the destination. Every router on the internet makes                |
+|                 | forwarding decisions at this layer using IP addresses.             |
+|-----------------|--------------------------------------------------------------------|
+|                 | Handles node-to-node delivery on the same network segment.         |
+|                 | Provides error detection and MAC addressing. Packages              |
+| 2. Data Link    | packets into frames with source/destination MAC addresses.         |
+|                 | Detects(and sometimes corrects) erros introduced by the            |
+|                 | physical medium. Network switch forwards frames using MAC          |
+|                 | addresses - it lives at this layer.                                |
+|-----------------|--------------------------------------------------------------------|
+|                 | The raw transmission of bits over a physical medium - cables,      |
+|                 | fibre, radio, waves, or light pulses. Defines voltages,            |
+| 1. Physical     | frequencies, pin layouts, cable types, and modulation scheme.      |
+|     Layer       | Turns 0s and 1s into physical signals and back. A fibre            |
+|                 | optic cable converting electrical signals to light pulses is       |
+|                 | a purely physical-layer concern.                                   |
+#--------------------------------------------------------------------------------------#

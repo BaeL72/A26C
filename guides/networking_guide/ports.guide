@@ -1,0 +1,54 @@
+Port - is a 16-bit number(0-65535) that identifies a specific service on a machine.
+If an IP address is like a building's street address, a port is the apartment number
+it tells traffic exactly which service to go to.
+
+Three port ranges:
+
+0-1023 -> Well-known ports (reserved, require root/admin)
+1024-49151 -> Registered ports (common apps, IANA-registered)
+49152-65535 -> Ephemeral ports (temporary, used by clients)
+
+Essential ports to know:
+
+80 HTTP
+443 HTTPS
+8080 HTTP alternative(dev servers, proxies)
+8443 HTTPS alternative
+3000 Common dev server (React, Node, Rails)
+
+25 SMTP -> Server-to-server mail transfer
+587 SMTP -> Client to mail server(submission)
+465 SMTPS -> SMTP over TLS
+110 POP3 -> Download mail(older)
+995 POP3S -> POP3 over TLS
+143 IMAP -> Sync mail across devices
+993 IMAPS -> IMAP over TLS
+
+22 SSH -> Secure remote shell
+23 Telnet -> Unencrypted shell(obsolete, never use)
+3389 RDP -> Windows Remote Desktop
+
+20 FTP data
+21 FTP control
+22 SFTP -> FTP over SSH(same port as SSH)
+69 TFTP -> Trivial FTP, UDP, no auth
+
+53 DNS -> UDP for queries, TCP for zone transfers
+67 DHCP -> Server(assigns IP addresses)
+68 DHCP -> Client
+123 NTP -> Time synchronization
+
+3306 MySQL/MariaDB
+5432 PostgreSQL
+1433 Microsoft SQL Server
+1521 Oracle DB
+27017 MongoDB
+6379 Redis
+
+21 FTP
+389 LDAP -> Directory services
+636 LDAPS -> LDAP over TLS
+5601 Kibana
+9200 Elasticsearch
+2181 Zookeeper
+9092 Kafka

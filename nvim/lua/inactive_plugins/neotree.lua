@@ -12,7 +12,7 @@ return {
 			require("neo-tree").setup({
 				window = {
 					position = "left",
-					width = 60,
+					width = 30,
 					popup = {
 						size = {
 							width = "50%",

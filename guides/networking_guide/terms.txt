@@ -1,0 +1,7 @@
+Datadog - is a cloud-based observability and monitoring platform.
+SSDP - Simple Service Discovery Protocol
+UPnP - Universal Plug and Play
+Peer - is a computer, device or node that shares equal status, responsibilities, and
+a network, directly interacting without relying on a central server.
+ICMP(Internet Control Message Protocol) - is a network layer protocol used by routers
+and devices to communicate error messages and operational information.

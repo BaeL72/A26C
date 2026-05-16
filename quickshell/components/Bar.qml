@@ -6,7 +6,7 @@ PanelWindow {
 
     property int generalHeight: 20
 
-    property string backgroundColor: "#000000"
+    property string backgroundColor: "#161415"
     property string separator1Color: "#ffffff"
 
     property string clock_DMY_fg: "#ffffff"
@@ -18,9 +18,9 @@ PanelWindow {
     property string network_bg: "#000000"
     property string network_fg: "#ffffff"
 
-    property string volume_scale_bg: "gray"
+    property string volume_scale_bg: "#51565a"
     property string volume_volume_scale_bg: "#ffffff"
-    property string volume_mute_bg: "darkgray"
+    property string volume_mute_bg: "#9ea0a7"
 
     property string memusage_bar_bg: "#000000"
     property string memusage_border_color: "#ffffff"
@@ -43,12 +43,13 @@ PanelWindow {
 
     anchors {
         top: true
-        bottom: false
-        left: true
+        bottom: true
+        left: false
         right: true
     }
 
-    implicitHeight: generalHeight
+    // implicitHeight: generalHeight
+	implicitWidth: 30
     color: root.backgroundColor
 
     ClockWidget {
@@ -56,7 +57,8 @@ PanelWindow {
 
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: -1.5
+		anchors.horizontalCenterOffset: -7
+        // anchors.verticalCenterOffset: -1.5
 
         visible: root.clock_visible
 
@@ -72,8 +74,7 @@ PanelWindow {
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.horizontalCenterOffset: -430
-        anchors.verticalCenterOffset: -1.5
+        anchors.verticalCenterOffset: -300
 
         visible: root.workspaces_visible
 
@@ -84,21 +85,19 @@ PanelWindow {
         inwork_color: root.workspaces_inwork_color
     }
 
-    MemUsageWidget {
-        anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
+	BatteryWidget {
+		id: battery
 
-        anchors.horizontalCenterOffset: -865
-        anchors.verticalCenterOffset: -1.5
+		anchors.centerIn: parent
+		anchors.horizontalCenter: parent.horizontalCenter
 
-        visible: root.memusage_visible
+		anchors.verticalCenterOffset: 230
+		anchors.horizontalCenterOffset: 1.5
 
-        mem_bar_color: root.memusage_bar_bg
-        mem_border_color: root.memusage_border_color
-        mem_font_color: root.memusage_fg
-        mem_icon_color: root.memusage_icon_color
-        mem_height: root.generalHeight
-    }
+		visible: root.battery_visible
+
+
+	}
 
     VolumeWidget {
         id: volume
@@ -106,55 +105,13 @@ PanelWindow {
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.horizontalCenterOffset: 820
-        anchors.verticalCenterOffset: -1.5
+        // anchors.horizontalCenterOffset: 820
+        anchors.verticalCenterOffset: 480
 
         visible: root.volume_visible
 
         scale_color: root.volume_scale_bg
         volume_scale_color: root.volume_volume_scale_bg
         mute_color: root.volume_mute_bg
-    }
-
-    BatteryWidget {
-        id: battery
-
-        anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
-
-        anchors.horizontalCenterOffset: 930
-        anchors.verticalCenterOffset: -1.5
-
-        visible: root.battery_visible
-    }
-
-    NetworkWidget {
-        id: network
-
-        anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
-
-        anchors.horizontalCenterOffset: 890
-        anchors.verticalCenterOffset: -1.5
-
-        visible: root.network_visible
-
-        netFont: root.network_fg
-    }
-
-    Text {
-        id: separator1
-
-        anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
-
-        anchors.horizontalCenterOffset: 185
-        anchors.verticalCenterOffset: -2
-
-        text: "|"
-        color: root.separator1Color
-        font.pixelSize: 20
-
-        visible: root.separator1_visible
     }
 }

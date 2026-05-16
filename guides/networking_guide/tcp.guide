@@ -1,0 +1,87 @@
+TCP Flags:
+
+SYN | Synchronize               | Initiate a connection
+ACK | Acknowledge               | Confirm receipt of data
+FIN | Finish                    | Gracefully close a connection
+RST | Reset                     | Abruptly terminate a connection
+PSH | Push                      | Deliver data immediately(don't buffer)
+URG | Urgent                    | Prioritize marked data
+ECE | ECN Echo                  | Signal congestion(used with CWR)
+CWR | Congestion Window Reduced | Confirm congestion response
+
+Connection Lifecycle:
+
+3-Way Handshake(open):            4-Way Teardown(close):
+                                  
+Client      Server                Client      Server
+|---SYN------->| seq=x            |---FIN------->| client done sending
+|<--SYN+ACK----| seq=y, ack=x+1   |<--ACK--------|
+|---ACK------->| ack=y+1          |<--FIN--------| server done sending
+| ESTABLISHED  |                  |---ACK------->|
+                                  |    CLOSED    | client waits TIME_WAIT(2xMSL) before fully 
+                                                   closing
+
+RST - abrupt reset (no handshake): sent on invalid packets, refused ports, or crashed peers.
+
+Connection States:
+
+CLOSED -> LISTEN -> SYN_RCVD -------------------|
+                                                |
+CLOSED -> SYN_SENT ----------------------> ESTABLISHED
+                                                |
+                  |-----------------------------|
+              FIN_WAIT_1                    CLOSE_WAIT
+                  |                             |
+              FIN_WAIT_2                     LAST_ACK
+                  |                             |
+              TIME_WAIT<----------------------CLOSED
+                  |
+                CLOSED
+
+Congestion Control - 4 Phases
+
+1. Slow Start:
+  a) Begin with cwnd = 1 MSS;
+  b) Double cwnd every RTT(Exponential growth);
+  c) Until cwnd hits ssthresh or loss detected;
+2. Congestion Avoidance:
+  a) Once cwnd > ssthresh;
+  b) Grow linearly: cwnd += 1 MSS per RTT;
+  c) "Additive Increase";
+3. Fast Retransmit:
+  a) On 3 duplicate ACKs -> retransmit immediately(don't wait for timeout);
+  b) Assumes single packets loss, not full congestion;
+4. Fast Recovery(Reno/CUBIC):
+  a) After 3 dup ACKs:
+    ssthresh = cwnd / 2;
+    cwnd - ssthresh + 3;
+    Resume congestion avoidance(don't drop to slow start);
+  b) After timeout(severe): cwnd = 1, restart slow start;
+
+CUBIC(Linux default)
+Instead of purely ACK-driven, CUBIC grows cwnd as a cubic function of time since last loss:
+  W(t) = C * (t - K)^3 + Wmax
+Wmax = Window before last reduction;
+K = time to reach Wmax again;
+Aggressive on fast/long links, backs off near Wmax - better for high-bandwidth networks
+than Reno;
+
+cwnd(Congestion Window) is a TCP mechanism that limits the amout of data a sender can
+transmit before receiving acknowledgements(ACKs), preventing network congestion.
+
+ssthresh(Slow Start Theshold) is a TCP congestion control variable that defines
+the limit between exponential growth(slow start) and linear growth(congestion avoidance)
+of the congestion window(cwnd). When cwnd reaches ssthresh, TCP becomes more conservative,
+increasing the window by 1 MSS per RTT to avoid network congestion.
+
+MSS(Maximum Segment Size).
+
+rwnd(Receive Window) a key parameter in TCP flow control that prevents a sender from
+overwhelming a receiver with too much data.
+
+                             Flow Control               Congestion Control
+##################################################################################
+Goal                | Don't overwhelm the reciever | Don't overwhelm the network
+Mechanism           | Reciever advertises rwnd     | Sender manages cwnd
+Signal              | TCP window field in header   | Packet loss / ECN
+Effective send rate | main(cwnd, rwnd)             | -

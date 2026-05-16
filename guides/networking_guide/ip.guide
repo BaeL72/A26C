@@ -1,0 +1,93 @@
+0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Ver   | IHL   |    DSCP   |ECN|        Total Length           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Identification        |Flags|    Fragment Offset      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Time to Live |    Protocol   |        Header Checksum        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Source Address                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Destination Address                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options (if IHL > 5)                       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+       Field        | Bits  | Description
+##################################################################################
+Version             |     4 | IP version - 4 for IPv4, 6 for IPv6
+IHL                 |     4 | Internet Header Length 32-bit words(min=5 -> 20 bytes, max=15->60 bytes)
+DSCP                |     6 | Differentiated Service Code Point - QoS priority(VoIP, video, etc.)
+ECN                 |     2 | Explicit Congestion Notification - signal congestion without dropping packets
+Total Length        |    16 | Entire packet size in bytes(header + data), max 65535
+Identification      |    16 | Shared ID across all fragments of the same original datagram
+Flags               |     3 | Fragmentation control
+Fragment Offset     |    13 | Position os this fragment in original datagram(units of 8 bytes)
+TTL                 |     8 | Hops remaining before discard 
+Protocol            |     8 | Encapsulated protocol: 6=TCP, 17=UDP, 1=ICMP, 89=OSPF
+Header Checksum     |    16 | Covers header only(not payload); recalculated at every hop
+Source Address      |    32 | Sender's IPv4 address
+Destination Address |    32 | Receiver's IPv4 address
+Options             | 0-320 | Rarely used: timestamps, record route, strict source routing
+
+DF - Don't Fragment
+MF - More Fragments
+TTL - Time to Live
+TTL is a hop counter, not a timer(despite the name).
+Why it matters: Prevents packets looping forever in routing loops.
+
+Sender sets TTL(e.g. 64)
+        |
+    [Router 1] TTL -> 63 ----------------------------------------|
+        |                                                        |
+    [Router 2] TTL -> 62                         each router decrements TTL by 1
+        |
+    [Router N] TTL -> 0 -> DROP -> send ICMP "Time exceeded" back
+
+    Default TTL by OS:
+
+    Linux     | 64
+    Windows   | 128
+    macOS     | 64
+    Cisco IOS | 255
+
+Fragmentation:
+
+Happens when a packet is larger than the link's MTU(Maximum Transmission Unit).
+
+Ethernet MTU = 1500 bytes(most common).
+
+Flags field(3 bits):
+
+Bit |   Name   | Meaning
+################################################################################
+0   | Reserved | Always 0
+1   | DF       | Don't Fragment - drop and send ICMP error if too large
+2   | MF       | More Fragments - more pieces follow(0 on last/only fragment)
+
+How fragmentation works:
+
+Original packet: 4000 bytes payload + 20 byte header, MTU = 1500
+
+Original:  [HDR][────────────── 4000 bytes data ──────────────]
+
+Fragment 1: [HDR] MF=1, offset=0    [──── 1480 bytes ────]
+Fragment 2: [HDR] MF=1, offset=185  [──── 1480 bytes ────]
+Fragment 3: [HDR] MF=0, offset=370  [── 1040 bytes ──]
+
+Offset in units of 8 bytes 1480 / 8, 2960 / 8 = 370
+Reassembly happens only at the destination - intermediate routers do not reassemble.
+
+Path MTU Discovery(PMTUD):
+Modern approach - avoids fragmentation entirely:
+
+Sender sets DF=1
+     │
+     ▼
+[Router] packet too big → drops it
+     │
+     └──→ ICMP "Fragmentation Needed" + MTU of next link
+     │
+     ▼
+Sender reduces packet size and retries

@@ -3,8 +3,9 @@ import Quickshell.Services.Pipewire
 
 Item {
     id: root
-    width: 100
-    height: 6
+    width: 6
+    height: 100
+	rotation: 180
 
     required property string scale_color
     required property string volume_scale_color
@@ -29,13 +30,13 @@ Item {
 
     // fill — grey when muted
     Rectangle {
-        width: parent.width * parent.volume
-        height: parent.height
+        width: parent.width
+		height: parent.height * parent.volume
         color: parent.muted ? root.mute_color : root.volume_scale_color
-        topLeftRadius: 10
-        bottomLeftRadius: 10
 
-        topRightRadius: root.volume_percentage > 90 ? 10 : 0
+        topLeftRadius: 10
+        topRightRadius: 10
         bottomRightRadius: root.volume_percentage > 90 ? 10 : 0
+        bottomLeftRadius: root.volume_percentage > 90 ? 10 : 0
     }
 }

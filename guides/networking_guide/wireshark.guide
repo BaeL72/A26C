@@ -1,0 +1,35 @@
+NUMBER TIME ip.src -> ip.dst TRANSFER_PROTOCOL_BEING_USED PACKET_SIZE_IN_BYTES \
+[tshark warning] SOURCE_PORT DESTINATION_PORT TCP_FLAG SEQUENCE_NUMBER \
+ACKNOWLEDGEMENT_NUMBER WINDOW_SIZE PAYLOAD_LENGTH TIMESTAMP_VALUE TIMESTAMP_ECHO_REPLY
+
+NUBMER                       | Packet number in the capture.
+TIME                         | Timestamp in seconds since the capture started.
+ip.src                       | Source IP. Who sent the packet.
+->                           | Direction of the packet.
+ip.dst                       | Who the packet is going to.
+TRANSFER_PROTOCOL_BEING_USED | The tranport protocol being used.
+PACKET_SIZE_IN_BYTES         | Packet size in bytes(including headers).
+[tshark warning]             | Tshark warning.
+SOURCE_PORT                  | Who is sending from port.
+DESTINATION_PORT             | Who the getting on port.
+TCP_FLAG                     | TCP flag(
+                             |  [SYN] - Start connection
+                             |  [SYN, ACK] - Accept connection
+                             |  [ACK] - Acknowledge received data
+                             |  [FIN] - Close connection
+                             |  [RST] - Reset/Abort connection
+                             |  [PSH] - Push data immediately
+                             |).
+SEQUENCE_NUMBER              | Sequence number - TCP uses this to orde packets.
+ACKNOWLEDGEMENT_NUMBER       | Confirms what data has been successfully received.
+WINDOW_SIZE                  | TCP flow control. Actual size is multiplied by a window
+                             | scale factor negotiated at handshake - real window is
+                             | likely much larger.
+PAYLOAD_LENGTH               | This a pure ACK packet, just an acknowledgement with
+                             | no data attached.
+TIMESTAMP_VALUE              | Used for round-trip time measurement and to protect
+                             | against old duplicate packets.
+TIMESTAMP_ECHO_REPLY         | Website is echoing back the timestamp from last packet.
+                             | The difference between TSval and TSecr lets TCP
+                             | calculate RTT precisely.
+

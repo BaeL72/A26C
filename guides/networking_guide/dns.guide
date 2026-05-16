@@ -1,0 +1,27 @@
+DNS(Domain Name System)
+TTL(Time To Live)
+ISP(Internet Server Provider)
+TLD(Top Level Domain: .com, .org, .net...)
+ccTLD(Country Code Top Level Domain: .uk, .us .su...)
+
+Key DNS Record Types:
+
+Record | Purpose                           | Example
+###########################################################################
+A      | Domain -> IPv4                    | google.com -> 142.250.185.46
+AAAA   | Domain -> IPv6                    | google.com -> 2607:f8b0::...
+CNAME  | Alias -> another domain           | www -> google.com
+MX     | Mail server for domain            | google.com -> smtp.google.com
+NS     | Authoritative maneservers         | google.com -> ns1.google.com
+TXT    | Arbirtary text(SPF, verification) | "v=spf1 include:..."
+
+The 4 Actors:
+
+Browser
+|
+Recursive Resolver # ISP's(Internet Server Provider) or a public one
+|
+Root Nameserver    # Knows where TLD(Top Level Domain) servers are
+|
+TLD Nameserver     # Knows who owns .com, .org, .net etc.
+| Authoritative NS   # Knows the actual IP for google.com

@@ -37,6 +37,7 @@ Ctrl + [ # Escape to normal mode(same as <ESC>)
 Ctrl + c # Escape to normal mode
 Ctrl + k # Insert digraph
 Ctrl + v # Insert literal char
+Ctrl + o # Execute one normal command then return to insert
 
 zz Center screen cursor
 zt Put cursor line at top
@@ -62,12 +63,56 @@ T # Jump to before char backward
 S # Delete line + insert mode
 s # Delete char + insert mode
 
+"ayy Yank line into register 'a'
+"ap Paste from register 'a'
+"*y Yank to system clipboard
+"+y Yank system clipboard (linux)
+:reg Show all registers
+
+daw Delete a word include space
+di" Delete inside quotes
+da" Delete including quotes
+dip Delete inner paragraph
+di{ Delete inside curly braces
+ci( Change inside parenthesses
+yi[ Yank inside brackets
+
+gf Open file under cursor
+gx Open URL under cursor in browser
+ga Show ASCII value of character in under cursor
+
+gUiw Uppercase whole word
+guiw Lowercase whole word
+
+grn # Rename symbole under cursor
+gra # Code action under cursor
+grr # Show references
+gri # Go to implementation
+grd # Go to definition
+grD # Go to declaration
+gd # Go to LOCAL definition
+gD # Go to global definition
+
+gt # Go to next TAB
+gT # Go to previous TAB
+gi # Go to last insert position and re-enter insert
+g; # Go to previous change location
+g, # Go to next location
+gJ # Join lines without adding space
+g& # Repeat last substitute on entire file
+gv # Reselect last visual selection
+g Ctrl + g # Show file info
+gn # Select next search match(visual)
+gN # Select previous search match
+cgn # Change next match
+dgn # Delete next match
+
 == # Autoindent current line
 gg=G # Autoindent entire file
 
 > # Indent line
 < # Unindent line
-NUMBER>>/<< # Indent/Unindent NUBMER lines
+NUMBER>>/<< # Indent/Unindent NUMBER lines
 
 ^ # Jump to first non-blank char of line
 _ # Same as ^, but it accepts a count(NUMBER_)
@@ -101,26 +146,6 @@ ma Set mark 'a' at current position
 `^ Jump to last insert position
 :marks List all marks
 
-"ayy Yank line into register 'a'
-"ap Paste from register 'a'
-"*y Yank to system clipboard
-"+y Yank system clipboard (linux)
-:reg Show all registers
-
-daw Delete a word include space
-di" Delete inside quotes
-da" Delete including quotes
-dip Delete inner paragraph
-di{ Delete inside curly braces
-ci( Change inside parenthesses
-yi[ Yank inside brackets
-
-gf Open file under cursor
-gx Open URL under cursor in browser
-ga Show ASCII value of character in under cursor
-
-gUiw Uppercase whole word
-guiw Lowercase whole word
 
 :3d Delete 3 lines
 :3,7d Delete lines 3 to 7
@@ -130,8 +155,10 @@ guiw Lowercase whole word
 :%d Delete all lines
 
 :r # Read
+:r !cmd # Read shell command output into buffer
 :e # Edit
-:x # Exit
+:e! # reload file, discard changes
+:x # Save if modified, then quit
 :c # Change
 :t # Copy
 :j # Join lines
@@ -141,6 +168,50 @@ guiw Lowercase whole word
 :l # List
 :k # Mark(same as m)
 :z # Scroll screen
+:a # Append after line
+:i # insert before line
+:wqa # Save all and quit
+:xa # Same as :wqa but only writes buffers that actually have changes
+:f / :f name # Show or rename current file
+:ls / :buffers # list buffers
+:b N / :b name # Switch to buffer
+:bn / bp # next/prev buffer
+:bd # Delete(close) buffer
+:bd! # Force delete buffer
+:badd file # Add file to buffer list
+:bufdo cmd # Run command on all buffers
+:new # New horizontal split
+:vnew # New vertical split
+:only # Close all other windows
+:close # Close current window
+:windo cmd # Run command on all windows
+:tabnew # New tab
+:tabclose # Close tab
+:tabnext / :tabprev # Navigate tabs
+:tabfirst / :tablast # First/last tab
+:tabdo cmd # Run command on all tabs
+:tabmove N # Move tab to position N
+:map # List all mappings
+:nmap/:vmap/:imap # List mode-specific maps
+:command # List user command
+:u/:undo # Undo
+:red/:redo # Redo
+:undolist # Show undo tree branches
+:fold # Create fold
+:foldopen # Open fold
+:foldclose # Close fold
+:folddoopen cmd # Run cmd on all open fold lines
+:folddoclose cmd # Run cmd on all closed fold lines
+:lua code # Execute Lua
+:n # Go to next file in arglist
+:N # Go to previous file in arglist
+:first # Go to first file
+:last # Go to last file
+:args # Show the arglist
+:argadd newfile # Add a file
+:argdelete file # Remove a file
+:argedit file # Add and open a file
+:argdo cmd # Run command in every file in argslist
 
 :tNUMBER # Copy current line to NUBMER line
 :/pattern/= # Print line number of next match

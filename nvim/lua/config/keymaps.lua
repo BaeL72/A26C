@@ -1,35 +1,29 @@
 local map = vim.keymap.set
 local telescope = require("telescope.builtin")
 
---DEFAULT KEYMAPS REWORK
-
-map({ "n", "v" }, ";", ":")
-map("n", "<leader>[", ":bprev<CR>")
-map("n", "<leader>]", ":bnext<CR>")
-
 --TELESCOPE KEYMAPS
 
-map("n", "<leader>tlg", telescope.live_grep, { desc = "Telescope Live Grep" })
+map("n", "<leader>lg", telescope.live_grep, { desc = "Telescope Live Grep" })
 map("n", "<leader>tr", telescope.registers, { desc = "Telescope Registers" })
 map("n", "<leader>tb", telescope.buffers, { desc = "Telescope Buffers" })
-map("n", "<leader>tht", telescope.help_tags, { desc = "Telescope Help Tags" })
-map("n", "<leader>tfa", telescope.current_buffer_fuzzy_find, { desc = "Telescope Fuzzy Find In Current Buffer" })
-map("n", "<leader>tac", telescope.commands, { desc = "Telescope Commands" })
-map("n", "<leader>tgc", telescope.git_commits, { desc = "Telescope Git Commits" })
-map("n", "<leader>tgB", telescope.git_bcommits, { desc = "Telescope Git Bcommits" })
-map("n", "<leader>tgb", telescope.git_branches, { desc = "Telescope Git Branches" })
-map("n", "<leader>tgs", telescope.git_status, { desc = "Telescope Git Status" })
-map("n", "<leader>tgh", telescope.git_stash, { desc = "Telescope Git Stash" })
-map("n", "<leader>tts", telescope.treesitter, { desc = "Telescope Tree Sitter" })
-map("n", "<leader>tak", telescope.keymaps, { desc = "Telescope Available Keymaps" })
-map("n", "<leader>tdl", "<cmd>w | Telescope diagnostics<cr>", { desc = "Telescope Diagnostics List" })
-map("n", "<leader>tff", telescope.find_files, { desc = "Telescope find files" })
-map("n", "<leader>tof", telescope.oldfiles, { desc = "Telescope Old Files" })
-map("n", "<leader>tgs", telescope.grep_string, { desc = "Telescope Grep String" })
-map("n", "<leader>tch", telescope.command_history, { desc = "Telescope Command History" })
-map("n", "<leader>tsh", telescope.search_history, { desc = "Telescope Search History" })
+map("n", "<leader>th", telescope.help_tags, { desc = "Telescope Help Tags" })
+map("n", "<leader>tc", telescope.commands, { desc = "Telescope Commands" })
+map("n", "<leader>gc", telescope.git_commits, { desc = "Telescope Git Commits" })
+map("n", "<leader>gB", telescope.git_bcommits, { desc = "Telescope Git Bcommits" })
+map("n", "<leader>gb", telescope.git_branches, { desc = "Telescope Git Branches" })
+map("n", "<leader>gs", telescope.git_status, { desc = "Telescope Git Status" })
+map("n", "<leader>gh", telescope.git_stash, { desc = "Telescope Git Stash" })
+map("n", "<leader>ts", telescope.treesitter, { desc = "Telescope Tree Sitter" })
+map("n", "<leader>ak", telescope.keymaps, { desc = "Telescope Available Keymaps" })
+map("n", "<leader>dl", "<cmd>w | Telescope diagnostics<cr>", { desc = "Telescope Diagnostics List" })
+map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
+map("n", "<leader>of", telescope.oldfiles, { desc = "Telescope Old Files" })
+map("n", "<leader>ch", telescope.command_history, { desc = "Telescope Command History" })
+map("n", "<leader>sh", telescope.search_history, { desc = "Telescope Search History" })
+-- map("n", "<leader>tg", telescope.grep_string, { desc = "Telescope Grep String" })
+-- map("n", "<leader>ff", telescope.current_buffer_fuzzy_find, { desc = "Telescope Fuzzy Find In Current Buffer" })
 
-map("n", "<leader>n", "<cmd>Oil<cr>", { desc = "Oil File Explorer" })
+-- map("n", "<leader>n", "<cmd>Oil<cr>", { desc = "Oil File Explorer" })
 -- map("n", "<leader>n", "<cmd>Neotree toggle<cr>", { desc = "NeoTree Toggle" })
 -- map("n", "<leader>n", "<cmd>Telescope file_browser<cr>", { desc = "Telescope File Browser" })
 
@@ -60,7 +54,7 @@ map("n", "<leader>dg", "<cmd>DapGoto<cr>", { desc = "Go to line (no execute)" },
 map("n", "<leader>di", "<cmd>DapStepInto<cr>", { desc = "Step Into" }, { ft = { "c", "cpp", "h", "rs" } })
 map("n", "<leader>dj", "<cmd>DapDown<cr>", { desc = "Down" }, { ft = { "c", "cpp", "h", "rs" } })
 map("n", "<leader>dk", "<cmd>DapUp<cr>", { desc = "Up" }, { ft = { "c", "cpp", "h", "rs" } })
-map("n", "<leader>dl", "<cmd>DapShowLog<cr>", { desc = "Show Log" }, { ft = { "c", "cpp", "h", "rs" } })
+map("n", "<leader>dsl", "<cmd>DapShowLog<cr>", { desc = "Show Log" }, { ft = { "c", "cpp", "h", "rs" } })
 map("n", "<leader>do", "<cmd>DapStepOver<cr>", { desc = "Step Over" }, { ft = { "c", "cpp", "h", "rs" } })
 map("n", "<leader>dO", "<cmd>DapStepOut<cr>", { desc = "Step Out" }, { ft = { "c", "cpp", "h", "rs" } })
 map("n", "<leader>dp", "<cmd>DapPause<cr>", { desc = "Pause" }, { ft = { "c", "cpp", "h", "rs" } })
@@ -86,12 +80,6 @@ end, { desc = "Toggle Debug UI" })
 -- map("n", "<leader>ml", "<cmd>CMakeClean<cr>", { desc = "CMake Clean" }, { ft = { "c", "cpp", "h" } })
 
 -- CODE RUNNER
-local ftforcr = { "c", "cpp", "py" }
-
-map("n", "<leader>rc", "<cmd>w | RunCode<cr>", { desc = "Run Code" }, { ftforcr })
-
---LSP KEYMAPS
-local lb = vim.lsp.buf
-
-map({ "n", "x" }, "ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
-map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+-- local ftforcr = { "c", "cpp", "py" }
+--
+-- map("n", "<leader>rc", "<cmd>w | RunCode<cr>", { desc = "Run Code" }, { ftforcr })

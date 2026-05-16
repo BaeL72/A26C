@@ -1,0 +1,92 @@
+HTTP(HyperText Transfer Protocol)
+QUIC - is a modern transport protocol developed by Google and standardized by the IETF
+       in 2021. It's the foundation of HTTP/3.
+
+HTTP Methods:
+
+Method  | Purpose                      | Has Body?
+##################################################
+GET     | Retrieve a resource          | No
+POST    | Submit data, create resource | Yes
+PUT     | Replace a resource entirely  | Yes
+PATCH   | Partially update a resource  | Yes
+DELETE  | Remove a resource            | No
+HEAD    | Like GET, but headers only   | No
+OPTIONS | Ask what methods are allowed | No
+
+Key distinctions:
+
+Get -> read only, should never change data
+POST -> creates something new, not idempotent
+PUT -> full replacement, idempotent
+PATCH -> partial update
+DELETE -> remove, idempotent
+
+idempotent = doing it multiple times has the same effect as once.
+
+Status codes:
+
+1xx - Infomational
+100 Continue -> Keep sending your request
+101 Switching Protocols Upgrading
+
+2xx - Success
+200 OK -> Standart success
+201 Created -> Resource was created(after POST)
+204 No Content -> Success but nothing to return
+
+3xx - Redirection
+301 Moved Permanently -> Resource has a new URL, update your links
+302 Found -> Temporary redirect
+304 Not Modified -> Use your cached version
+
+4xx - Client Error
+400 Bad Request -> Malformed request
+401 Unauthorized -> Need to authenticate
+403 Forbidden -> Authenticated but not allowed
+404 Not Found -> Resource doesn't exist
+405 Method Not Allowed -> Wrong HTTP method
+409 Conflict -> Conflict with current state
+422 Unprocessable -> Validation failed
+429 Too Many Request -> Rate limited
+
+5xx - Server Error
+500 Internal Server Error -> Generic server crash
+502 Bad Gateaway -> Upstream server failed
+503 Service Unavailable -> Server overloaded or down
+504 Gateaway Timeout -> Upstream server too slow
+
+Headers:
+
+Common request:
+
+Host -> Which domain you're contacting
+Authorization -> Auth token/credentials
+Content-Type -> Format of the body you're sending
+Accept -> Format you want back
+Cookie -> Session data
+User-Agent -> Browser/Client identifier
+
+Common response:
+
+Content-Type -> Format of the body being returned
+Set-Cookie -> Tell browser to store a cookie
+Cache-Control -> How long to cache the response
+Location -> Where to redirect(used with 3xx)
+CORS headers -> Cross-origin permissions
+
+HTTP versions:
+
+HTTP/1.1 - One request at a time per connection, keep-alive
+HTTP/2   - Multiplexing - many requests over one connection, compressed headers
+HTTP/3   - Runs on UDP(via QUIC) instead of TCP, lower latency
+
+The mental model:
+
+Method -> What you want to do
+URL -> What you want to do it to
+Headers -> Metadata about the request
+Body -> Data you're sending(POST, PUT, PATCH)
+Status -> Did it work?
+Headers -> Metadata about the response
+Body -> Data comming back
