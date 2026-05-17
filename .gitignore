@@ -6,5 +6,9 @@ required.txt
 dconf/
 pulse/
 nvim/undodir/
+nvim/lazy-lock.json
 yay/
 tree-sitter/
+zellij/
+gtk-3.0/
+go/

@@ -23,5 +23,6 @@ if status is-interactive
 
   set fish_greeting
   starship init fish | source
+  set -gx PATH $HOME/.local/bin $PATH
 
  end

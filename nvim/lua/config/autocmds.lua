@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "python", "c", "cpp", "rust" },
+	pattern = { "python", "c", "cpp", "rust", "sh" },
 	callback = function()
 		vim.treesitter.start()
 	end,
