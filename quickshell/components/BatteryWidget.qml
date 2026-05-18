@@ -40,8 +40,8 @@ Item {
         height: volume_empty_bar.height * root.battery.percentage
         topLeftRadius: 15
         topRightRadius: 15
-        bottomRightRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
-        bottomLeftRadius: root.battery_lvl_in_percents === 100 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
+        bottomRightRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 0 : 0
+        bottomLeftRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 0 : 0
 		color: {
 			switch (root.battery.state) {
 				case UPowerDeviceState.Charging:
