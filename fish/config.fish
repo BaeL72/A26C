@@ -2,10 +2,6 @@ if status is-interactive
 
   fish_vi_key_bindings
 
-  bind -M insert -m default jj "repaint"
-  bind -M visual -m default jj "repaint"
-  bind -M replace -m default jj "repaint"
-
   bind -M insert \cf history-pager
   bind -M insert \cr ""
 

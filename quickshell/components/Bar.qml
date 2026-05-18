@@ -12,9 +12,8 @@ PanelWindow {
     property string clock_DMY_fg: "#ffffff"
     property string clock_HMS_fg: "#ffffff"
     property string clock_cross_fg: "#ffffff"
-    property string clock_clock_bg: "#000000"
-    property string clock_border_color: "#000000"
-
+	property string clock_clock_bg: "#000000" 
+	property string clock_border_color: "#000000"
     property string network_bg: "#000000"
     property string network_fg: "#ffffff"
 
@@ -57,7 +56,8 @@ PanelWindow {
 
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
-		anchors.horizontalCenterOffset: -7
+		anchors.horizontalCenter: parent.horizontalCenter
+		anchors.horizontalCenterOffset: -8
         // anchors.verticalCenterOffset: -1.5
 
         visible: root.clock_visible
@@ -74,7 +74,8 @@ PanelWindow {
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.verticalCenterOffset: -300
+        anchors.verticalCenterOffset: -540
+		anchors.horizontalCenterOffset: -2
 
         visible: root.workspaces_visible
 
@@ -92,7 +93,7 @@ PanelWindow {
 		anchors.horizontalCenter: parent.horizontalCenter
 
 		anchors.verticalCenterOffset: 480
-		anchors.horizontalCenterOffset: 1.5
+		// anchors.horizontalCenterOffset: -1
 
 		visible: root.battery_visible
 

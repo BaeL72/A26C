@@ -14,12 +14,13 @@ Item {
     property int actual_workspaces_height: workspaces_height - 5
 	property var workspaceColors: ["#bb080b", "#255bfc", "#8aa730", "#e8a736", "#c200fb", "#0db9d7", "#ffffff", "#ff5e2c", "#f75590", "#e0ffc2"]
 
-    height: actual_workspaces_height
+    height: 1
     anchors.verticalCenter: parent.verticalCenter
 
     ColumnLayout {
         id: row_root
         anchors.centerIn: parent
+		height: 1
         spacing: 0
 
         Repeater {
