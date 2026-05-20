@@ -1,0 +1,13 @@
+Physical Layer:
+	ip link show # Display interfaces
+	ip -br link show Display interfaces more readable
+	ip link set INTERFACE up # Up interface 
+	ip -s link show INTERFACE # Display additional statistics about interface
+	ip neighbor show # Display entries in ARP table
+	ip address show # Display machine local IP
+	traceroute LINK # Determine the path that traffic takes to its destination.
+	ip route show # Display routing table
+	nslookup LINK # Program to query Internet domain name servers
+	ss
+	telnet # Tries to establish TPC connection with whatever host and port
+	nc # telnet for UDP

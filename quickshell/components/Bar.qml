@@ -75,7 +75,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         anchors.verticalCenterOffset: -540
-		anchors.horizontalCenterOffset: -2
+		anchors.horizontalCenterOffset: -1.5
 
         visible: root.workspaces_visible
 
@@ -93,7 +93,6 @@ PanelWindow {
 		anchors.horizontalCenter: parent.horizontalCenter
 
 		anchors.verticalCenterOffset: 480
-		// anchors.horizontalCenterOffset: -1
 
 		visible: root.battery_visible
 
