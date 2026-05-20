@@ -21,26 +21,27 @@ if status is-interactive
   function last_command
     echo $history[1]
   end
-function fish_mode_prompt
-    switch $fish_bind_mode
-        case default
-            set_color --bold '#1e90ff'
-            echo '[N] '
-        case insert
-            set_color --bold '#50fa7b'
-            echo '[I] '
-        case replace_one
-            set_color --bold '#dd2233'
-            echo '[R] '
-        case visual
-            set_color --bold '#9400d3'
-            echo '[V] '
-    end
-    set_color normal
-end
+  function fish_mode_prompt; end
   function fish_prompt
-	  echo (set_color green)$PWD
-	  echo (set_color '#f0e7d5')'> '
+	  echo (set_color '#81c028')$PWD
+
+	  switch $fish_bind_mode
+		  case default
+			  set_color --bold '#1e90ff'
+			  echo -n '[N]'(set_color '#f0e7d5')' > '
+		  case insert
+			  set_color --bold '#50fa7b'
+			  echo -n '[I]'(set_color '#f0e7d5')' > '
+		  case replace_one replace
+			  set_color --bold '#dd2233'
+			  echo -n '[R]'(set_color '#f0e7d5')' > '
+		  case visual
+			  set_color --bold '#9400d3'
+			  echo -n '[V]'(set_color '#f0e7d5')' > '
+		  case '*'
+			  echo -n '[?]'(set_color '#f0e7d5')' > '
+	  end
+	  set_color normal
   end
 
   set fish_greeting
