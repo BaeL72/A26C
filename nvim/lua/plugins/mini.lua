@@ -1,24 +1,22 @@
 return {
 	{
 		"nvim-mini/mini.surround",
-		version = "*",
 		config = function()
 			require("mini.surround").setup({
 				mappings = {
-					add = "sa",
-					delete = "sd",
-					find = "sf",
-					find_left = "sF",
-					highlight = "sh",
-					replace = "sr",
-					update_n_lines = "sn",
+					add = "<space>sa",
+					delete = "<space>sd",
+					find = "<space>sf",
+					find_left = "<space>sF",
+					highlight = "<space>sh",
+					replace = "<space>sr",
+					update_n_lines = "<space>sn",
 				},
 			})
 		end,
 	},
 	{
 		"nvim-mini/mini.move",
-		version = "*",
 		config = function()
 			require("mini.move").setup()
 		end,

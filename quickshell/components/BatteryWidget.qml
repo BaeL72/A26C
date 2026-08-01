@@ -1,18 +1,93 @@
 import Quickshell.Services.UPower
 import QtQuick
 
-Text {
-    property var battery: UPower.displayDevice
+Item {
+    id: root
 
-    text: {
-        switch (battery.state) {
-        case UPowerDeviceState.Charging:
-            return (battery.percentage * 100) + " | " + "Charging";
-        case UPowerDeviceState.Discharging:
-            return (battery.percentage * 100) + " | " + "Discharging";
-        default:
-            return (battery.percentage * 100) + " | " + "fully charged";
+    property var battery: UPower.displayDevice
+    property int battery_lvl_in_percents: battery.percentage * 100
+
+    property string battery_color_bg
+    property string battery_color_fg
+    property string battery_empty_color_bg: "gray"
+
+    property string charging_color: "#00ff00"
+    property string discharging_color_1: "#ffffc0"
+    property string discharging_color_2: "#ffff00"
+    property string discharging_color_3: "#ff0000"
+    property string fully_charged_color: "#ffffff"
+    property string error_color: "#ff00ff"
+
+    property string white_fg: "#ffffff"
+    property string black_fg: "#000000"
+
+    implicitHeight: 18
+    implicitWidth: 45
+    anchors.verticalCenter: parent.verticalCenter
+
+    Rectangle {
+        id: volume_empty_bar
+
+        anchors.fill: parent
+        radius: 15
+        color: root.battery_empty_color_bg
+    }
+
+    Rectangle {
+        width: volume_empty_bar.width * root.battery.percentage
+        height: parent.height
+        topLeftRadius: 15
+        bottomLeftRadius: 15
+        topRightRadius: root.battery_lvl_in_percents >= 95 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
+        bottomRightRadius: root.battery_lvl_in_percents === 100 ? 15 : root.battery_lvl_in_percents < 100 && root.battery_lvl_in_percents > 80 ? 6 : 3
+        color: root.battery_color_bg
+    }
+
+    Text {
+        id: battery_widget
+
+        color: root.battery_color_fg
+        font.pixelSize: 16
+        font.family: "Google Sans Flex"
+        verticalAlignment: Text.AlignVCenter
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: 0
+        text: {
+            let battery_level = root.battery.percentage * 100;
+
+            switch (root.battery.state) {
+            case UPowerDeviceState.Charging:
+                root.battery_color_bg = root.charging_color;
+                root.battery_color_fg = root.black_fg;
+                battery_widget.anchors.verticalCenterOffset = 0.5;
+                return "󱐋" + (battery_level);
+            case UPowerDeviceState.Discharging:
+                root.battery_color_fg = root.black_fg;
+                if (battery_level >= 75) {
+                    root.battery_color_bg = root.fully_charged_color;
+                    battery_widget.anchors.verticalCenterOffset = 1.5;
+                } else if (battery_level < 75 && battery_level >= 50) {
+                    root.battery_color_bg = root.discharging_color_1;
+                    battery_widget.anchors.verticalCenterOffset = 1.5;
+                } else if (battery_level < 50 && battery_level >= 25) {
+                    root.battery_color_bg = root.discharging_color_2;
+                    battery_widget.anchors.verticalCenterOffset = 1.5;
+                } else if (battery_level < 25) {
+                    root.battery_color_bg = root.discharging_color_3;
+                    battery_widget.anchors.verticalCenterOffset = 1.5;
+                } else {
+                    root.battery_color_bg = root.error_color;
+                    battery_widget.anchors.verticalCenterOffset = 1.5;
+                }
+                return (battery_level);
+            case UPowerDeviceState.FullyCharged:
+                root.battery_color_bg = root.fully_charged_color;
+                root.battery_color_fg = root.black_fg;
+                battery_widget.anchors.verticalCenterOffset = 1.5;
+                return (battery_level);
+            default:
+                return "N/A";
+            }
         }
     }
-    color: "black"
 }

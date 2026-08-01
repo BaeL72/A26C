@@ -1,3 +1,5 @@
+NORMAL MODE:
+
 Ctrl + f Scroll full page down
 Ctrl + b Scroll full page up
 Ctrl + d Scroll half page down
@@ -5,15 +7,76 @@ Ctrl + u Scroll half page up
 Ctrl + e Scroll down one line
 Ctrl + y Scroll up one line
 
+Ctrl + a Increment number under cursor
+Ctrl + x Decrement number under cursor
+Ctrl + o # Jump back in jump list
+Ctrl + i # Jump forward in jump list
+Ctrl + g # Show file info, line count, position
+Ctrl + l # Redraw screen \ clear highlights
+Ctrl + v # Visual block mode 
+Ctrl + w # Window commands
+Ctrl + ] # Jump to tag under cursor
+Ctrl + t # Jump back from tag
+Ctrl + ^ # Alternate file(last edited file)
+Ctrl + z # Suspend Neovim to shell
+
+INSERT MODE:
+
+Ctrl + r + = # Insert expression result
+Ctrl + r{reg} # Insert contents of register
+Ctrl + w # Delete word before cursor
+Ctrl + u # Delete line before cursor
+Ctrl + t # Indent current line
+Ctrl + d # Unindent current line
+Ctrl + a # Insert last inserted text
+Ctrl + e # Insert char from line below
+Ctrl + y # Insert char from line above
+Ctrl + h # Delete char before cursor
+Ctrl + j # Newline
+Ctrl + m # Newline(same as Enter)
+Ctrl + [ # Escape to normal mode(same as <ESC>)
+Ctrl + c # Escape to normal mode
+Ctrl + k # Insert digraph
+Ctrl + v # Insert literal char
+
 zz Center screen cursor
 zt Put cursor line at top
 zb Put cursor line at bottom
 
+REMEMBER: Single quotes inside cmd end the Vim command string.
+
+? # Search match above the current position
+/\<word/> # Search full word
+?\<word/> # Search full word above the current position
+
+| # Move to column
+
 { Jump to previous empty line
 } Jump to next empty line
 
+f # Jump to char forward
+F # Jump to char backward
+
+t # Jump to before char forward
+T # Jump to before char backward
+
+S # Delete line + insert mode
+s # Delete char + insert mode
+
+== # Autoindent current line
+gg=G # Autoindent entire file
+
+> # Indent line
+< # Unindent line
+NUMBER>>/<< # Indent/Unindent NUBMER lines
+
+^ # Jump to first non-blank char of line
+_ # Same as ^, but it accepts a count(NUMBER_)
++ # Down one line, land on first non-blank char
+- # Up one line, land on first non-blank char
+
 ( Sentence backward
-)Sentence forward
+) Sentence forward
 
 [[ Section backward
 ]] Section forward
@@ -29,6 +92,7 @@ q Stop recording
 @a Replay macro
 @@ Replay last macro
 10@a Replay 10 times
+q: # Command history
 
 ma Set mark 'a' at current position
 'a Jump to line of mark 'a
@@ -52,15 +116,10 @@ di{ Delete inside curly braces
 ci( Change inside parenthesses
 yi[ Yank inside brackets
 
-Ctrl + o Go back in jumplist
-Ctrl + i Go forward in jumplist
-
 gf Open file under cursor
 gx Open URL under cursor in browser
 ga Show ASCII value of character in under cursor
 
-Ctrl + a Increment number under cursor
-Ctrl + x Decrement number under cursor
 gUiw Uppercase whole word
 guiw Lowercase whole word
 
@@ -70,6 +129,22 @@ guiw Lowercase whole word
 :$d Delete last line
 :.,$d Delete from current to end
 :%d Delete all lines
+
+:r # Read
+:e # Edit
+:x # Exit
+:c # Change
+:t # Copy
+:j # Join lines
+:= # Print line number
+:g # Global, run cmd on matching lines
+:v # Vglobal, run cmd on non-matching lines
+:l # List
+:k # Mark(same as m)
+:z # Scroll screen
+
+:tNUMBER # Copy current line to NUBMER line
+:/pattern/= # Print line number of next match
 
 q: Open command history window
 Ctrl + f Open command history window while in cmdline
@@ -91,22 +166,165 @@ Ctrl + f Open command history window while in cmdline
 :norm @a Run macro 'a'
 :'<,'>norm I// Paste '//' in start of all selected lines
 :%norm A; Append semicolon to every line
+:for i in range(start,end,step) | exe i.'norm opt' | endfor Norm with step
 
 :r !cat file.txt Insert file content at cursor
 :%!sort Sort entire file
 @: Repeat last cmdline command
 
-:earlier 1m Revert buffer to how it was 1 minute ago
-:later 30s Go forward 30 seconds in undo history
-:changes Show change list
-:history Show cmdline history
-:messages Show all previous messages/errors
+:earlier 1m # Revert buffer to how it was 1 minute ago
+:later 30s # Go forward 30 seconds in undo history
+:changes # Show change list
+:history # Show cmdline history
+:messages # Show all previous messages/errors
 
-:0put Paste before line 1
-:$put Paste after last line
-:1put Paste default register after line 1
-:1put + Paste system clipboard after line 1
-:1put a Paste register 'a' after line 1
+:0put # Paste before line 1
+:$put # Paste after last line
+:1put # Paste default register after line 1
+:1put + # Paste system clipboard after line 1
+:1put a # Paste register 'a' after line 1
 
-:1p Display line 1 in cmdline
-? Search match above the current position
+:1p # Display line 1 in cmdline
+
+:[range]s/pattern/replacement/[flags]
+
+FLAGS:
+
+g # All occurrences on line(not just first)
+i # Case intensitive
+I # Case sensitive
+c # Confirm each replacement
+n # count matches only, don't replace
+e # suppress errors if no match
+p # print line after substitution
+& # reuse flags from last :s
+
+CONFIRM MODE PROMPTS:
+
+y # Yes, replace
+n # No, skip
+a # Replace all remaining
+q # Quit
+l # Replace this one then quit
+
+REPLACEMENT Special Characters:
+
+& # Entire match
+\0 # Entire match
+\1 \2 # Capture group 1,2
+\u # Uppercase next char
+\l # Lowercase next char
+\U # Uppercase rest of replacement
+\L # Lowercase rest of replacement
+\E # end \U or \L
+\n # Newline
+\t # Tab
+\\ # Literal backslash
+~ # Last replacement thing
+
+:[range]g/pattern/cmd
+
+:g/pattern/d # Delete matching lines
+:g/pattern/p # Print matching lines
+:g/pattern/y A # Yank matching lines into register A
+:g/pattern/t$ # Copy matching lines to end of file
+:g/pattern/m0 # Move matching lines to top of file
+
+INVERSE :v or :g!:
+
+:v/pattern/d # Delete lines NOT matching
+:g!/pattern/d # Same thing
+:v/\S/d # Delete all blank/whitespaces-only lines
+
+RANGES:
+
+:g/TODO/norm A [DONE] # Append text to matching lines
+:g/^/m0 # Reverse the entire file
+:g/pattern/s/foo/bar/g # Substitute on matching lines only
+:g/pattern/normal @q # Run macro q on matching lines
+:g/^#/t$ # Copy all # lines to end of file
+:g/pattern/center # Center matching lines
+
+\m # magic # default, some chars need escaping
+\M # nomagic # Most chars are literal
+\v # very magic # Closest to PCRE, least escaping
+\V # very nomagic # Everything literal except \
+
+:g/\v(foo|bar)/d # very magic # no escaping needed
+:g/\M(foo)/d # nomagic # matches literal
+
+^ # Start of line
+$ # End of line
+\%^ # Start of file
+\%$ # End of file
+\< # Start of word
+\> # End of word
+\%NUMBERl # Specific line number
+\%NUMBERc # Specific column
+
+. # Any character except newline
+\d # Digit [0-9]
+\D # Non-digit
+\w # Word char [a-zA-z0-9_]
+\W # Non-word char
+\s # Whitespace(space, tab)
+\S # Non-whitespace
+\a # Alphabetic
+\A # Non-alphabetic
+\l # Lowercase letter
+\u # Uppercase letter
+\x # Hex digit[0-9a-fA-F]
+\o # Octal digit
+[abc] # Any of a, b, c
+[^abc] # None of a, b, c
+[a-z] # Range
+
+* # 0 or more
+\+ # 1 or more
+\? # 0 or 1
+\{n} # Exacly n
+\{n,} # n or more
+\{,m} # 0 to m
+\{n,m} # Between n and m
+\{-} # 0 or more
+\{-n,m} # Between n and m
+
+\| # OR(magic mod)
+\( \) # Capture group(magic mod)
+\%( \) # Non-capturing group
+\1 \2 # Backreferences
+
+\@= # Positive lookahead
+\@! # Negative lookahead
+\@<= # Positive lookbehind
+\@<! # Negative lookbehind
+
+\t # Tab
+\n # Newline
+\r # Carriage return
+\\ # Literal backslash
+\~ # Last substitute string
+\_s # Whitespace including newline
+\_.* # Any chars including newlines
+\%[] # Optionally matches sequence
+
+\c # Case-intensitive
+\C # Case-sensitive(force)
+
+WINDOW COMMANDS:
+
+Ctrl + w + s # Split horizontal
+Ctrl + w + v # Split vertical
+Ctrl + w + h/j/k/l # Move to left/down/up/right window
+Ctrl + w + H/J/K/L # Move window itself left/down/up/right
+Ctrl + w + w # Cycle to next window
+Ctrl + w + p # Go to previous window
+Ctrl + w + c # Close current window
+Ctrl + w + o # Close all other windows
+Ctrl + w + q # Quit current window
+Ctrl + w + = # Equalize window sizes
+Ctrl + w + +/- # Increase/Decrease height
+Ctrl + w + </> # Increase/Decrease width
+Ctrl + w + r # Rotate window
+Ctrl + w + T # Move window to new tab
+Ctrl + w + n # New empty window

@@ -13,11 +13,11 @@ return {
   cyan   = '#79dac8',
   black  = '#080808',
   white  = '#c6c6c6',
-  red    = '#cd143c',
+  red    = '#dd2233',
   violet = '#9400d3',
   grey   = '#303030',
-  green  = '#46B47F',
-  orange = '#ee9f27',
+  green  = '#50fa7b',
+  orange = '#ff9d00',
   terminal_black = '#020403',
 }
 

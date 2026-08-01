@@ -3,30 +3,45 @@ import Quickshell.Io
 
 Item {
     id: root
-    property string network: "..."
-    required property string colorOfText
-    implicitWidth: label.implicitWidth + 16
-    implicitHeight: 20
+
+    required property string netFont
+
+    property int netSignal: -1
+    property string netStatus: ""
+
+    implicitWidth: 25
+    implicitHeight: 25
+    anchors.verticalCenter: parent.verticalCenter
 
     Timer {
         interval: 5000
         running: true
         repeat: true
         triggeredOnStart: true
-        onTriggered: net.running = true
+        onTriggered: netCheck.running = true
     }
 
     Process {
-        id: net
-        command: ["nmcli", "-t", "-f", "IN-USE,SSID,SIGNAL", "dev", "wifi"]
+        id: netCheck
+
+        command: ["bash", "-c", "~/.config/quickshell/scripts/networkSignal.sh"]
+
         stdout: StdioCollector {
             onStreamFinished: {
-                const line = this.text.trim().split("\n").find(l => l.startsWith("*"));
-                if (line) {
-                    const parts = line.split(":");
-                    root.network = parts[1] + " " + parts[2];
+                root.netSignal = parseInt(this.text);
+
+                if (root.netSignal >= 90) {
+                    root.netStatus = "󰤨";
+                } else if (root.netSignal < 90 && root.netSignal >= 75) {
+                    root.netStatus = "󰤥";
+                } else if (root.netSignal < 75 && root.netSignal >= 50) {
+                    root.netStatus = "󰤢";
+                } else if (root.netSignal < 50 && root.netSignal >= 25) {
+                    root.netStatus = "󰤟";
+                } else if (root.netSignal < 25) {
+                    root.netStatus = "󰤯";
                 } else {
-                    root.network = "Disconnected";
+                    root.netStatus = "󰤭";
                 }
             }
         }
@@ -34,8 +49,12 @@ Item {
 
     Text {
         id: label
+
+        color: root.netFont
         anchors.centerIn: parent
-        text: root.network
-        color: root.colorOfText
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: 21
+        font.family: "Google Sans Flex"
+        text: root.netStatus
     }
 }

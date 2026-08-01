@@ -13,7 +13,19 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				automatic_enable = true,
+				automatic_enable = {
+					exclude = {
+						"rust_analyzer",
+					},
+				},
+
+				ensure_installed = {
+					"clangd",
+					"pyright",
+					"ruff",
+					"bashls",
+					"rust_analyzer",
+				},
 			})
 		end,
 	},

@@ -1,0 +1,192 @@
+rwx 7 All permissions
+r 4 Read contents
+w 2 Modify contents
+x 1 Execute
+- 0 No permission
+
+/etc/passwd Contain basic user info
+/etc/shadow Contain sensitive password info
+
+user/group/others
+
+### chmod - change permissions:
+
+chmod u+x file Add execute for owner
+chmod g-w file Remove write for group
+chmod o=r file Set others to read only
+chmod a+r file All(ugo) get read
+chmod g+s file Setgid Bit, when set on a directory, all new files inherit the directory's
+                           group automatically
+
+chmod 755 file rwxr-xr-x
+chmod 644 file rw-r--r--
+chmod 700 file rwx------
+chmod 600 file rw-------
+
+-R Recursive
+
+777 rwxrwxrwx
+755 rwxr-xr-x
+644 rw-r--r--
+700 rwx------
+600 rw-------
+400 r--------
+
+### Ownership - chown/chgrp
+
+chown alice file.txt Change owner of file to alice
+chown alice:devs file.txt Change owner and group
+chgrp devs file.txt Change group only
+chown :devs file.txt Change group only
+chown -R alice:devs /project/ Recursive
+chown --reference=ref.txt target.txt Copy ownership from another file
+
+Setuid(SUID) - bit 4 On executables: runs as the file owner, not the caller.
+chmod u+s /usr/bin/passwd
+chmod 4755 file
+
+Setgid(SGID) - bit 2 On executables: runs as the file's group. On directories: new files
+inherit the directory's group.
+chmod g+s /shared/dir
+chmod 2755 /shared/dir
+
+Sticky bit - bit 1 On directories: users can only delete their own files even if they have
+write on the dir. Used on /tmp.
+chmod +t /tmp
+chmod 1777 /tmp
+
+setfacl -m u:alice:rw rile.txt Grants user alice read+write
+setfacl -m g:devs:r file.txt Grants group devs read only
+setfacl -m u:alice:rw,g:devs:r file.txt Multiple rules at once
+setfacl -R -m u:alice:rwx /project/ Recursive
+setfacl -x u:alice file.txt Remove one entry
+setfacl -b file.txt Remove all ACLs
+setfacl -d -m u:alice:rw /project/
+setfacl -k /project/ Remove all defaults
+getfacl file.txt
+Backup and restore:
+getfacl -R /project/ > acls.bak
+setfacl --restore=acls.bak
+
+umask - Default permission mask. Defines which bits are removed from new files/dirs.
+        When create a new file or directory, the system applies a umask to strip certain
+        permissions automatically.
+        Define what to take away from new files, not what give.
+
+umask Show current(octal)
+umask -S Show current(symbolic)
+umask 027 Set new umask
+
+file default: 666
+umask: -022
+result: 644
+
+sudo -u USER command Run command as USER
+sudo -l List your allowed commands
+
+visudo Configure sudo
+
+username ALL=(ALL:ALL) ALL
+Who | from where can use sudo | = | run as user | run as group | what commands
+
+PAM Pluggable Authentication Modules
+PAM controls how Authentication works for services like login, ssh, sudo
+
+passwd Change password of user
+passwd -n Minimum days between changes:
+sudo passwd -n 7 alice Must wait 7 days before changing again.
+
+passwd -x Maximum days before change required:
+sudo passwd -x 90 alice Password expires after 90 days
+
+passwd -w Warning days before expiry
+passwd -i Inactive days after expiry
+passwd -S Show password status
+
+su USER Switches user but keeps current environment
+su - USER Full login - loads USER's env completely
+su -c Runs a command then exits back:
+
+su -c "whoami" USER
+su -s Use bash even if USER's shell is different
+
+useradd -s /usr/bin/fish USER Force USER use fish
+sudo usermod -aG sudo USERNAME Add USERNAME to sudoears
+
+usermod [options] username
+
+usermod -c "Full Name" username Change comment/full name
+usermod -l newname oldname Rename the user
+usermod -d /new/home username Change home directory
+usermod -d /new/home -m username Change home dir and move files there
+usermod -s /bin/bash username Change default shell
+
+usermod -L username Lock account
+usermod -U username Unlock account
+
+usermod -aG groupname username Add user to a group(keep existing)
+usermod -G grouname username Set groups(removes from all others)
+usermod -g groupname username Change primary group
+
+usermod -e 2026-12-31 username Set account expity date
+usermod -e "" username Remove expity date
+usermod -f 30 username Disable account 30 days after password expires
+
+usermod -u 1234 username Change user ID(UID)
+
+id username Check user info
+grep username /etc/passwd Check full entry in passwd file
+groups username Check groups
+
+sudo chage -l username Show account info
+
+groupadd groupname - Create a new group
+
+groupadd -g 1234 groupname - With specific GID
+groupadd -r groupname - System group(GID < 1000)
+
+groupmod [options] groupname
+
+Require root or sudo.
+
+groupmod -n newname oldname Rename a group
+groupmod -g 1234 groupname Set GID to 1234
+groupmod -g 1234 -o groupname Force - even if GID is already in use
+groupmod -p 'password' groupname Set password
+
+cat /etc/group All groups
+getent group groupname Query group database
+
+groupadd groupname Create new group
+groupdel groupname Delete group
+gpasswd -a username groupname Add user to group
+gpasswd -d username groupname Delete user from group
+groups username Show groups of a user
+id username Show UID, GID, groups
+
+chgrp groupname file Change the group owner of a file or directory
+-R Recursive
+-v Verbose - print what changed
+
+gpasswd - Manage Group Passwords and Members
+
+gpasswd [option] groupname
+
+EXAMPLE:
+
+gpasswd -M username1, username2 groupname - Set entire member list
+gpasswd -A username groupname - Make USER a GROUP admin
+gpasswd groupname - Set group password interactively
+gpasswd -r groupname - Remove group password
+
+newgrp groupname - Switch active group
+exit - Return to previous shell and group
+
+getent Query System Database, looks up entries from system databases
+
+getent database [key]
+
+EXAMPLE:
+
+getent passwd All users
+getent passwd username Specific user

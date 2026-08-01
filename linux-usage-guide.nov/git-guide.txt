@@ -1,0 +1,184 @@
+First-time Configuration:
+
+git config --global user.name "USERNAME"
+git config --global user.email "USEREMAIL"
+git config --global core.editor "nvim"
+git config --global init.defaultBranch.main
+
+BASIC:
+
+git init # Start tracking a new project
+git clone <url> # Copy an existing repo
+git clone <url> folder # Clone into specific folder
+
+git status # See what changed 
+git add file # Stage a specific file
+git commit -m "DESCRIPTION" # Save staged changes
+git push # Send commits to remote
+git pull # fetch + marge remote changes
+git log # Full commit history
+git log --oneline # Compact one-line view
+git log --oneline --graph # Visual branch graph
+git log -p # Show diffs with each commit
+git log --author="NAME" # Filter by author
+
+git checkout -- file # Discard unstaged file changes
+git restore --staged file # Unstage a file(keep changes)
+git reset --soft HEAD~1 # Undo last commit, keep changes
+git reset --hard HEAD~1 # Undo last commit, discard changes
+git revert <hash> # Revert a commit (safe, adds new commit)
+git commit --amend -m "NEW MSG" # Amend the last commit message
+
+HEAD # is a current branch
+
+git branch -a # List all branches incl. remote
+git switch -c BRANCHNAME # Create and switch branch
+git branch -d BRANCHNAME # Delete merged branch
+git branch -D BRANCHNAME # Delete branch
+
+git merge BRANCHNAME # Merge branch into main
+git merge --no-ff BRANCHNAME # Always create a merge commit
+git merge --abort # Cancel a merge in conflict
+
+Rebase replays commits on top of another branch, resulting a cleaner linear history.
+
+NEVER REBASE BRANCHES THAT OTHERS ARE WORKING ON # IT REWRITES HISTORY
+
+git rebase main # Replay commits on top of main
+git rebase --continue # After resolving conflicts
+git rebase --abort # Cancel rebase
+
+origin # Remote repository name, instead of url.
+
+git remote -v # List remote
+git remote add origin <url> # Add a remote
+git remote rename origin new # Rename remote
+git remote remove origin # Remove remote
+
+git fetch # Download chanes, don't merge
+git pull # fetch + merge (or rebase if configured)
+git pull --rebase # fetch + rebase instead of merge
+git push origin main # Push local main to remote
+git push -u origin BRANCHNAME # Push and set upstream tracking
+git push --force-with-lease # Safe force push(won't overwrite other's work)
+
+git branch -u origin/main # Track remote branch
+git fetch --prune # Remove stale remote refs
+
+STASH:
+
+Stash temporalily saves work you are not ready to commit, letting switch context quickly.
+
+git stash # Stash current changes
+git stash push -m "wip: login" # Stash with a description
+git stash list # List all stashes
+git stash pop # Apply latest & remote it
+git stash apply stash@{1} # Apply specific stash, keep it
+git stash drop stash@{0} # Delete a stash
+git stash clear # Delete all stashes
+git stash branch BRANCHNAME # Create branch from stash
+
+TAG:
+
+Tag mark specific commits # typically used to mark version releases.
+
+git tag # List all tags
+git tag v1.0.0 # Create lightweight tag
+git tag -a v1.0.0 -m "Release" # Annotated tag
+git tag -a v1.0.0 <hash> # Tag a past commit
+git push origin v1.0.0 # Push a tag
+git push origin --tags # Push all tags
+git tag -d v1.0.0 # Delete local tag
+git push origin --delete v1.0.0 # Delete remote tag
+
+REFLOG:
+
+Reflog records every movement of HEAD.
+
+git reflog # See full HEAD history
+git reset --hard HEAD@{3} # restore to 3 moves ago
+
+Cherry-pick # Apply specific commits from one branch to another without merging the whole 
+              branch.
+
+git cherry-pick <hash> # Apply a single commit
+git cherry-pick A..B # Apply a range of commits
+git cherry-pick --no-commit <h> # Apply changes without committing
+
+INTERACTIVE REBASE:
+
+git rebase -i HEAD~5 # Edit last 5 commits
+
+COMMANDS in the interactive editor:
+
+pick # Keep commit as-is
+reword # Keep commit, edit message
+squash # Merge into previous commit
+fixup # Like squash, discard this message
+drop # Delete this commit entirely
+edit # Pause to amend the commit
+
+BISECT:
+
+Bisect # find the bug, binary-search through history to find which commit introduced a bug.
+
+git bisect start 
+git bisect bad # Current commit is braken
+git bisect good v1.0.0 # This tag was working
+git bisect good # Or: git bisect bad
+git bisect reset # When finished
+
+SUBMODULES:
+
+Embed another Git repository inside yours.
+
+git submodule add <url> path/ 
+git submodule update --init --recursive
+git submodule foreach git pull origin main
+
+WORKTREES:
+
+Check out multiple branches simultaneously in different folders:
+
+git worktree add ../hotfix hitfix-branch
+git worktree list 
+git worktree remove ../hotfix
+
+.gitignore
+
+The .gitignore file tells Git which files to never track. Place it in the root of your repo.
+
+OS files:
+.DS_Store
+Thumbs.db
+
+Dependency folders:
+node_modules/
+vendor/
+
+Build output:
+dist/
+build/
+*.o
+*.log
+
+Environment / secrets
+.env
+.env.local
+
+git rm --cached file to stop tracking an already-tracked file
+gitignore.io generates templates for any language or framework
+
+git diff # Unstaged changes
+git diff --staged # Staged changes
+git diff BRANCHNAME1..BRANCHNAME2 # Differences between branches
+git show <hash> # Inspect a commit
+git blame file # Who changed each line
+git shortlog -sn # Contributors by commit count
+git clean -fd # Delete untracked files/folders
+git archive --format=zip HEAD > out.zip # Export snapshot
+
+git add forgotten-file
+git commit --amend --no-edit # Add forgotten-file to last commit silently
+
+git add -p # Interactively stage chunks
