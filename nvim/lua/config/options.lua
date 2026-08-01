@@ -22,7 +22,7 @@ opt.relativenumber = false
 
 opt.cursorline = true
 
-opt.signcolumn = "yes:1"
+opt.signcolumn = "yes"
 opt.wrap = false
 opt.showmode = false
 opt.shiftwidth = 4

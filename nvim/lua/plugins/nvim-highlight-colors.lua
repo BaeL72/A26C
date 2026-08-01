@@ -1,6 +1,6 @@
 return {
 	"brenoprata10/nvim-highlight-colors",
-	ft = { "toml", "css", "conf", "config", "qml", "ini", "html", "lua", "json", "jsonc" },
+	ft = { "toml", "css", "conf", "config", "qml", "ini", "html", "lua", "json", "jsonc", "yaml" },
 	config = function()
 		require("nvim-highlight-colors").setup({
 			render = "background",

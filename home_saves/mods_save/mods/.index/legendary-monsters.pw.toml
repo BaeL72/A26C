@@ -1,0 +1,18 @@
+filename = 'legendary_monsters-2.1.21 MC 1.21.1.jar'
+name = 'Legendary Monsters'
+side = 'both'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.21.1'
+
+[download]
+hash = '3280dfaae208946cbf93c000cac7fe3d5829e16467aaec78b48976f2fa26ad6530210a3c3e28be9d35f26768796ed62d99b278687361cc977e0eadf65dda5d8a'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/9d9Bkqva/versions/C1o5aQit/legendary_monsters-2.1.21 MC 1.21.1.jar'
+
+[update.modrinth]
+mod-id = '9d9Bkqva'
+version = 'C1o5aQit'

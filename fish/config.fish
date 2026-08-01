@@ -12,6 +12,7 @@ if status is-interactive
 
   alias ls='eza --icons=auto'
   alias cat='bat'
+  alias show='bat -p'
   alias icat='kitty +kitten icat'
   alias pdf='bookokrat'
   alias ua='trans -b :uk'
@@ -23,21 +24,21 @@ if status is-interactive
   end
   function fish_mode_prompt; end
   function fish_prompt
-	  echo (set_color '#81c028')$PWD
+	  echo (set_color cyan)$PWD
 
 	  switch $fish_bind_mode
 		  case default
 			  set_color --bold '#1e90ff'
-			  echo -n '[N]'(set_color '#f0e7d5')' > '
+			  echo -n '[NORMAL]'(set_color '#f0e7d5')' > '
 		  case insert
 			  set_color --bold '#50fa7b'
-			  echo -n '[I]'(set_color '#f0e7d5')' > '
+			  echo -n '[INSERT]'(set_color '#f0e7d5')' > '
 		  case replace_one replace
 			  set_color --bold '#dd2233'
-			  echo -n '[R]'(set_color '#f0e7d5')' > '
+			  echo -n '[REPLACE]'(set_color '#f0e7d5')' > '
 		  case visual
 			  set_color --bold '#9400d3'
-			  echo -n '[V]'(set_color '#f0e7d5')' > '
+			  echo -n '[VISUAL]'(set_color '#f0e7d5')' > '
 		  case '*'
 			  echo -n '[?]'(set_color '#f0e7d5')' > '
 	  end

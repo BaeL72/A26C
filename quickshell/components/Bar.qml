@@ -70,22 +70,21 @@ PanelWindow {
         border_color: root.clock_border_color
     }
 
-    WorkspacesWidget {
-        anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
+     WorkspacesWidget {
+         anchors.centerIn: parent
+         anchors.verticalCenter: parent.verticalCenter
 
-        anchors.verticalCenterOffset: -540
-		anchors.horizontalCenterOffset: -1.5
+         anchors.verticalCenterOffset: -530
 
-        visible: root.workspaces_visible
+         visible: root.workspaces_visible
 
-        workspaces_height: root.generalHeight
-        workspaces_count: root.workspaces_workspaces_count
-        active_color: root.workspaces_active_color
-        inactive_color: root.workspaces_inactive_color
-        inwork_color: root.workspaces_inwork_color
-    }
-
+         workspaces_height: root.generalHeight
+         workspaces_count: root.workspaces_workspaces_count
+         active_color: root.workspaces_active_color
+         inactive_color: root.workspaces_inactive_color
+         inwork_color: root.workspaces_inwork_color
+     }
+	 
 	BatteryWidget {
 		id: battery
 

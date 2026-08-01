@@ -1,0 +1,18 @@
+filename = 'herios_floral_expansion-1.2.2-neoforge-1.21.1.jar'
+name = "Herios' Floral Expansion"
+side = 'both'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.2.2'
+
+[download]
+hash = '503d13b09ebff4f97b31c6c9cfc42e6b83bbe59580262a61d7f811e5a305e00bbca05cc0637facde71d93054dcfb0be9231d1757142f941ebaac647591013d54'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/yuwM5nCb/versions/I7Dd2s6N/herios_floral_expansion-1.2.2-neoforge-1.21.1.jar'
+
+[update.modrinth]
+mod-id = 'yuwM5nCb'
+version = 'I7Dd2s6N'

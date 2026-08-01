@@ -40,7 +40,7 @@ return {
 			inactive = {
 				a = { fg = colors.white, bg = "#000000", gui = "bold" },
 				b = { fg = colors.white, bg = "#000000" },
-				c = { fg = colors.white, bg = "#fffdd0" },
+				c = { fg = colors.white, bg = "#302f2c" },
 			},
 		}
 

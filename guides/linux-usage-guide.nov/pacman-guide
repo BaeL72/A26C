@@ -1,0 +1,5 @@
+pacman -Ss | Search for package  
+pacman -Qs | Search for package locally
+pacman -Rs | Remove a package(the s removes dependencies not required by another package)
+pacman -Si | Show detailed information about package
+pacman -Qi | Show detailed information about installed package

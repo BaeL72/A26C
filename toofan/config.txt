@@ -1,0 +1,5 @@
+duration=60
+mode=words
+lang=go
+difficulty=medium
+theme=tokyonight
